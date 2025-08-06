@@ -51,6 +51,16 @@ body {
     color: white;
 }
 
+/* Desktop & tablet */
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    flex: 1 1 100%;
+}
+
 .menu-toggle {
     display: none;
     font-size: 30px;
@@ -86,6 +96,51 @@ body {
         color: blue;
     }
 
+.overlay-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.shelf-container {
+    position: relative;
+    width: 100%;
+    max-width: 270px;
+    margin: 0 auto;
+}
+
+.shelf-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* two shelves per row*/
+    gap: 20px;
+}
+
+.shelf-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.welcome-grid, .shelf-grid {
+    flex: 1 1 45%; /* grow and shrink with max ~45% width */
+    min-width: 280px; /* prevent from getting too small */
+}
+
+/* Just to see layout visually (optional) */
+.welcome-grid {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
 /* Responsive section */
 @media (max-width: 768px) {
     .menu-toggle {
@@ -110,5 +165,25 @@ body {
 
     .nav-links li {
         margin: 10px 0;
+    }
+}
+
+/* Responsive design: Mobile view (under 768px) */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .welcome-grid, .shelf-grid {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .shelf-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+        justify-items: center;
     }
 }
