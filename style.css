@@ -141,9 +141,14 @@ body {
     padding: 20px;
 }
 
-/* Responsive section */
-@media (max-width: 768px) {
-    .menu-toggle {
+/* Responsive design: Mobile view (under 768px) */
+@media (max-width: 992px) {
+    .main-content {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+     .menu-toggle {
         display: block;
     }
 
@@ -165,14 +170,6 @@ body {
 
     .nav-links li {
         margin: 10px 0;
-    }
-}
-
-/* Responsive design: Mobile view (under 768px) */
-@media (max-width: 768px) {
-    .main-content {
-        flex-direction: column;
-        padding: 10px;
     }
 
     .welcome-grid, .shelf-grid {
