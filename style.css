@@ -98,17 +98,19 @@ body {
 
 .overlay-button {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%;   /* center vertically */
+    left: 50%;  /* center horizontally */
     transform: translate(-50%, -50%);
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
-    padding: 6px 10px;
-    border-radius: 50%;
-    font-size: 16px;
+    background: none;   /* remove button background */
+    border: none;       /* remove border */
+    padding: 0;
     cursor: pointer;
+}
+
+.overlay-button img {
+    width: 80px;   /* adjust button image size */
+    height: auto;
+    display: block;
 }
 
 .shelf-container {
@@ -116,6 +118,7 @@ body {
     width: 100%;
     max-width: 270px;
     margin: 0 auto;
+    display: inline-block;
 }
 
 .shelf-grid {

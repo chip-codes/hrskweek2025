@@ -4,18 +4,21 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="sliding.css">
-        <script src="sliding.js"></script>
         <title>Slide Puzzle #1</title>
     </head>
     <body>
-        <img id="title" src="image/logo.png">
-        <div id="board">
+        <div class="container">
+            <h1>Sliding Puzzle Game</h1>
+            <div class="game-board" id="gameBoard">
+                <!-- Tiles will be generated dynamically using Javascript -->
+            </div>
+            <div class="controls">
+                <button id="shuffleButton">Shuffle</button>
+            </div>
+            <div class="status">
+                Moves: <span id="moveCounter">0</span>  |  Time: <span id="timer">00:00</span>
+            </div>
         </div>
-        <div class="controls">
-            <button id="shuffleButton">Shuffle</button>
-        </div>
-        <div class="status">
-                Turns: <span id="turns">0</span>  |  Time <span id="timer">00:00</span>
-        </div>
+        <script src="sliding.js"></script>
     </body>
 </html>

@@ -1,69 +1,117 @@
-html, body {
-    height: 100%;
+* {
     margin: 0;
     padding: 0;
-    overflow-y: auto; /* stop scrolling */
+    box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    color: #0c67ae;
-
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: center; /* vertical center */
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8b500, #fceabb);
+    font-family: Arial, sans-serif;
 }
 
-.controls button{
-    padding: 10px 20px;
-    margin: 10px;
-    border:#0c67ae none;
-    border-radius: 5px;
+.container {
+    background: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 85vw;         /* ~85% of screen width */
+    max-width: 900px;    /* restrict on large screens */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px auto;   /* spacing from top/bottom */
+}
+/* --- Game Board --- */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 3px;
+    margin: 20px auto;
+    width: 85%;         /* takes 90% of viewport width */
+    max-width: 500px;    /* limit size on large screens */
+    aspect-ratio: 1 / 1; /* keeps square board */
+}
+
+.tile {
+    width: 100%;
+    aspect-ratio: 1 / 1;  /* square tiles */
+    background-size: cover;
+    background-position: center;
+    border-radius: 6px;
     cursor: pointer;
-    background: #0c67ae;
+    border: 1px solid black;
+}
+
+.tile.empty {
+    background: transparent;
+    cursor: default;
+    border: none;
+}
+
+/* --- Controls --- */
+.controls button {
+    padding: 12px 24px;
+    margin: 12px;
+    border: none;
+    border-radius: 56x;
+    cursor: pointer;
+    background: #6e8efb;
     color: #fff;
     font-size: 16px;
     transition: background 0.3s;
 }
 
 .controls button:hover {
-    background-color: rgb(90, 188, 220);
+    background: #f8b500;
 }
 
 .status {
     font-size: 18px;
-    margin: 15px;
+    margin-top: 12px;
 }
 
-#title {
-    width: 80%;
-    max-width: 400px;
-    height: auto;
-    margin-bottom: 1rem;
+/* ---------------- RESPONSIVENESS ---------------- */
+
+/* Small Mobile (<480px) */
+@media (max-width: 480px) {
+    .container {
+        width: 95vw;
+        padding: 15px;
+        margin: 10px auto;
+    }
+    .game-board {
+        width: 90%;
+        max-width: 300px;
+    }
 }
 
-#board {
-    --cols: 3;
-    --gap: max(2px, 0.5vmin);
-
-    /* Limit based on both dimensions */
-    width: min(90vw, 90vh, 450px);
-    height: min(90vw, 90vh, 450px);
-
-    background: #0c67ae;
-    border: max(6px, 0.8vw) solid #0c67ae;
-
-    display: grid;
-    grid-template-columns: repeat(var(--cols), 1fr);
-    grid-auto-rows: 1fr;
-    gap: var(--gap);
+/* Tablet (481px–1024px) */
+@media (min-width: 481px) and (max-width: 1024px) {
+    .container {
+        width: 85vw;
+        max-width: 750px;
+        margin: 30px auto;
+    }
+    .game-board {
+        width: 80%;
+        max-width: 500px;
+    }
 }
 
-#board img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    box-sizing: border-box;
+/* Laptop/Desktop (>1024px) */
+@media (min-width: 1025px) {
+    .container {
+        width: 70vw;
+        max-width: 950px;
+        margin: 40px auto;
+    }
+    .game-board {
+        width: 70%;
+        max-width: 600px;
+    }
 }
