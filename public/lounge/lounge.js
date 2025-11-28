@@ -250,7 +250,7 @@ async function loadPosts() {
   querySnapshot.forEach((docSnap) => {
     const data = docSnap.data();
     const postId = docSnap.id;
-    const timestamp = data.timestamp ? data.timestamp.toDate() :newDate();
+    const timestamp = data.timestamp ? data.timestamp.toDate() : new Date();
     const localTime = timestamp.toLocaleString();
     const postDiv = document.createElement("div");
     postDiv.classList.add("post");

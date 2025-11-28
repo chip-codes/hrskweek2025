@@ -1,89 +1,226 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <!-- <div class="nav-nav"> -->
+    <nav id="desktop-nav">
+        <div class="logo">hirasakoweek.</div>
+        <div>
+            <ul class="nav-links">
+                <li><a href="#character">Characters</a></li>
+                <li><a href="#interaction">Interactions</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#highlight">Highlight</a></li>
+                <li><a href="#lounge">Lounge</a></li>
+            </ul>
+        </div>
+    </nav>
+    <nav id="hamburger-nav">
+        <div class="logo">hirasakoweek.</div>
+        <div class="hamburger-menu">
+            <div class="hamburger-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu-links">
+                <li><a href="#character" onclick="toggleMenu()">Characters</a></li>
+                <li><a href="#interaction" onclick="toggleMenu()">Interactions</a></li>
+                <li><a href="#games" onclick="toggleMenu()">Games</a></li>
+                <li><a href="#highlight" onclick="toggleMenu()">Highlight</a></li>
+                <li><a href="#lounge" onclick="toggleMenu()">Lounge</a></li>
+            </div>
+        </div>
+    </nav>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/12.6.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/12.6.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/12.6.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/12.6.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/12.6.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/12.6.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/12.6.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/12.6.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/12.6.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/12.6.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    <div class="logos">
+        <div class="logos-slide">
+            <img src="./logos/logo1.png" />
+            <img src="./logos/logo2.png" />
+            <img src="./logos/logo3.png" />
+            <img src="./logos/logo4.png" />
+            <img src="./logos/logo5.png" />
+            <img src="./logos/logo6.png" />
+            <img src="./logos/logo7.png" />
+            <img src="./logos/logo8.png" />
+            <img src="./logos/logo9.png" />
+            <img src="./logos/logo10.png" />
+            <img src="./logos/logo11.png" />
+            <img src="./logos/logo12.png" />
+        </div>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+    <!-- </div>
+    <div class="content-content"> -->
+    <!-- PROFILE -->
+    <section id="profile">
+        <div class="profile-bg"></div>
+        <div class="section__text">
+            <p class="section_text_p1">A fanmade event by the community.</p>
+            <h1 class="first_title">Hirasako Week</h1>
+            <h1 class="date">December 2 ~ 8, 2025</h1>
+            <div class="section-pic-container">
+                <img src="./assets/pfp.png" alt="Profile picture">
+            </div>
+            <p class="section_text_p2">Let’s celebrate our two favorite characters together 🦈🦊 <br> Discover all the fun and excitement prepared just for you!</p>
+            <div class="btn-container">
+                <button class="btn btn-color-1" onclick="location.href='./#character'">Get Started</button>
+                <button class="btn btn-color-2" onclick="window.open('https://x.com/hirasakoweek')">Follow Us on <i class="ri-twitter-x-line"></i></button>
+            </div>
+        </div>
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#us'">
+    </section>
 
+    <section id="us">
+            <p class="admin_section__text__p1">Hey There!</p>
+            <h1 class="admin_title">it's Admin</h1>
+            <div class="section-container">
+                <p class="small-text">Thank you for stopping by!<br>Before you continue, don't forget to tag us OR use this hashtag if posting on X:</p>
+                <p class="hashtag">@hirasakoweek <br>#hirasakoweek2025</p>
+            </div>
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#character'">
+    </section>
+
+    <!-- character -->
+     <section id="character">
+        <p class="section__text__p1">Get To Know More</p>
+        <h1 class="title">Hiragi & Sako</h1>
+        <div class="section-container">
+            <div class="section__pic-container">
+                <img src="./assets/character-pic.png" alt="Profile picture" class="character-pic"/>
+            </div>
+        </div>
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#interaction'">
+     </section>
+
+     <!-- interaction -->
+      <section id="interaction">
+        <p class="section__text__p1">Explore The Sweet & Bitterness</p>
+        <h1 class="title">Their Interactions</h1>
+        <div class="interaction-details-container">
+            <div class="slide-container">
+        <div class="slides">
+            <img src="assets/img1.jpeg" alt="Image 1">
+            <img src="assets/img2.jpeg" alt="Image 2">
+            <img src="assets/img3.jpeg" alt="Image 3">
+            <img src="assets/img4.jpeg" alt="Image 4">
+            <img src="assets/img5.png" alt="Image 5">
+            <img src="assets/img6.jpeg" alt="Image 6">
+        </div>
+
+        <div class="buttons">
+            <span class="next">&#10095;</span>
+            <span class="prev">&#10094;</span>
+        </div>
+
+        <div class="dotsContainer"></div>
+            </div>
+    </div>
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#games'">
+      </section>
+
+      <!-- games -->
+       <section id="games">
+        <p class="section__text__p1">Come Join The Fun!</p>
+        <h1 class="title">Games Zone</h1>
+        <div class="interaction-details-container">
+          <div class="character-containers">
+                    <a href="games/maze/maze.html" class="btn-image">
+                        <img src="image/maze.png" alt="Maze">
+                    </a>
+
+                    <a href="games/word_search/wordsearch.html" class="btn-image">
+                        <img src="image/wordsearch.png" alt="Word Search">
+                    </a>
+
+                    <button class="btn-image" id="sliding-btn">
+                        <img src="image/sliding.png" alt="Sliding Puzzle">
+                    </button>
+
+                    <a href="games/memory_card/index.html" class="btn-image">
+                        <img src="image/memory.png" alt="Memory Card">
+                    </a>
+          </div>
+        </div>
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#highlight'">
+       </section>
+
+       <!--highlight-->
+       <section id="highlight">
+        <p class="section__text__p1">Fan's piece that made us smile 😆</p>
+        <h1 class="title">Today's highlight</h1>
+        <div class="highlight-info-upper-container">
+            <div class="highlight-info-container">
+                <img src="./assets/pfp.png" alt="Email icon" class="icon highlight-icon email-icon"/>
+                <p><a href="https://archiveofourown.org/users/soshiroh02">Read Now</a></p>
+            </div>
+            <div class="highlight-info-container">
+                <img src="./assets/pfp.png" alt="LinkedIn icon" class="icon highlight-icon"/>
+                <p><a href="https://x.com/birdy_bomb/status/1984243969778123184?s=20">Admire Now</a></p>
+            </div>
+        </div>
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#lounge'">
+       </section>
+
+       <!--THE LOUNGE-->
+       <section id="lounge">
+        <p class="section__text__p1">A lounge to show your games' achievements!</p>
+        <h1 class="title">The Lounge</h1>
+            <a class="go-lounge" href="lounge/lounge.html">
+            Go to Lounge <i class="ri-arrow-right-line"></i>
+            </a>
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#foot'">
+       </section>
+       <footer id="foot">
+        <nav id="footer-nav">
+            <div class="nav-links-container">
+                <ul class="nav-links">
+                    <li><a href="#character" onclick="toggleMenu()">Characters</a></li>
+                    <li><a href="#interaction" onclick="toggleMenu()">Interactions</a></li>
+                    <li><a href="#games" onclick="toggleMenu()">Games</a></li>
+                    <li><a href="#highlight" onclick="toggleMenu()">Highlight</a></li>
+                    <li><a href="#lounge" onclick="toggleMenu()">Lounge</a></li>
+                </ul>
+                <img src="./assets/arrow_up.png" 
+            alt="Back to top" 
+            class="icon arrow back-to-top" 
+            onclick="scrollToTop()">
+            </div>
+        </nav>
+        <p>Copyright &#169; 2025 hirasakoweek (X). All Rights Reserved.</p>
+       </footer>
+       <!-- </div> -->
+    <script src="script.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
+        var copy = document.querySelector(".logos-slide").cloneNode(true);
+        document.querySelector(".logos").appendChild(copy);
     </script>
-  </body>
+
+    <!-- Popup Overlay -->
+<div id="popup" class="popup-overlay">
+    <div class="popup-box">
+        <h2>Select a Sliding Puzzle Design</h2>
+
+        <div class="design-options">
+            <img src="assets/design1.jpg" data-design="1" alt="Design 1">
+            <img src="assets/design2.png" data-design="2" alt="Design 2">
+            <img src="assets/design3.jpg" data-design="3" alt="Design 3">
+            <img src="assets/design4.jpg" data-design="4" alt="Design 4">
+            <img src="assets/design5.jpg" data-design="5" alt="Design 5">
+        </div>
+
+        <button id="close-popup">Close</button>
+    </div>
+</div>
+
+</body>
 </html>

@@ -5,6 +5,9 @@
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   },
+  "database": {
+    "rules": "database.rules.json"
+  },
   "hosting": {
     "public": "public",
     "ignore": [
@@ -12,11 +15,5 @@
       "**/.*",
       "**/node_modules/**"
     ]
-  },
-  "storage": {
-    "rules": "storage.rules"
-  },
-  "database": {
-    "rules": "database.rules.json"
   }
 }
