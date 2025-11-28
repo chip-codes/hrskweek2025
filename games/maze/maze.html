@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
+    
+    <script src="script.js" defer></script>
+
+    <title>Hirasako Maze</title>
+</head>
+
+<body>
+    <nav class="navbar">
+            <a href="../../../index.html">
+                <i class="ri-arrow-left-s-line" style="cursor:pointer;"></i>
+            </a>
+        <h1>Maze</h1>
+        </nav>
+    <div id="page">
+
+        <!-- Congratulations Popup -->
+        <div id="Message-Container">
+            <div id="message">
+                <h1>Congratulations!</h1>
+                <p>You are done.</p>
+                <p id="moves"></p>
+                <input id="okBtn" type="button" onclick="toggleVisablity('Message-Container')" value="Cool!"/>
+            </div>
+        </div>
+
+        <!-- Difficulty + Start -->
+        <div id="menu">
+            <div class="custom-select">
+                <select id="diffSelect">
+                    <option value="10">Easy</option>
+                    <option value="15">Medium</option>
+                    <option value="25">Hard</option>
+                    <option value="38">Extreme</option>
+                </select>
+            </div>
+
+            <input id="startMazeBtn" type="button" onclick="startMaze()" value="Start" />
+
+        </div>
+
+        <!-- Maze Canvas -->
+        <div id="view">
+            <div id="mazeContainer">
+                <canvas id="mazeCanvas" class="border"></canvas>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <p id="instructions">Time: 0s - Use arrow keys to lead Hiragi to Sako!</p>
+
+
+        <div id="mobile-controls">
+            <div class="row">
+                <button class="arrow-btn" data-dir="up">▲</button>
+            </div>
+            <div class="row">
+                <button class="arrow-btn" data-dir="left">◀</button>
+                <button class="arrow-btn" data-dir="down">▼</button>
+                <button class="arrow-btn" data-dir="right">▶</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

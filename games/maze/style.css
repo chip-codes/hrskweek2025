@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f6d365, #fda085);
+}
+
+nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centers the title */
+    height: auto;
+    background: #f4f6f7;
+    width: 100%;
+    margin-bottom: 3vh;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;        /* vertically align arrow + title perfectly */
+  justify-content: center;    /* center the title */
+  height: 60px;               /* or whatever height you want */
+  position: relative;
+}
+
+/* position the arrow on the left but keep title centered */
+.navbar a {
+  position: absolute;
+  left: 5px;
+  display: flex;
+  align-items: center;         /* centers icon inside the anchor */
+  height: 100%;
+  text-decoration: none;
+}
+
+/* fix icon baseline issue */
+.navbar i {
+  line-height: 1;
+  font-size: 1.8rem;           /* adjust size if needed */
+  vertical-align: middle;
+  color: black;                /* or your color */
+}
+
+
+h1 {
+    margin: 10px;
+}
+
+#page {
+    text-align: center;
+    width: 100%;
+    margin: auto;
+}
+
+/* ---------- MENU AREA ---------- */
+
+#menu {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+input, select {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.30);
+    height: 45px;
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+}
+
+input:hover, select:hover {
+    background-color: rgba(0, 0, 0, 0.70);
+}
+
+input:active, select:active {
+    background-color: black;
+}
+
+input:focus, select:focus {
+    outline: none;
+}
+
+/* ---------- MAZE CANVAS ---------- */
+
+#view {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#mazeContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#mazeCanvas {
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-top: 5px;
+    background-color: #f4f6f7;
+}
+
+/* Thick border class */
+.border {
+    border: 10px black solid;
+    border-radius: 10px;
+}
+
+/* ---------- MESSAGE POPUP ---------- */
+
+#Message-Container {
+    visibility: hidden;
+    color: white;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.30);
+    z-index: 1;
+    top: 0;
+}
+
+#Message-Container #message {
+    width: 300px;
+    height: 300px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
+}
+
+/* ---------- INSTRUCTIONS ---------- */
+
+#instructions {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+/* ---------- RESPONSIVE BREAKPOINTS ---------- */
+
+/* Phones */
+@media only screen and (max-width: 480px) {
+    #mazeCanvas {
+        max-width: 260px;
+    }
+
+    input, select {
+        width: 110px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    #instructions {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+}
+
+/* Small Tablets */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    #mazeCanvas {
+        max-width: 350px;
+    }
+}
+
+/* Large Tablets */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    #mazeCanvas {
+        max-width: 420px;
+    }
+}
+
+
+/*MOBILE ARROW CONTROLS*/
+#mobile-controls {
+    display: none;
+    margin-top: 20px;
+}
+
+#mobile-controls .row {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+.arrow-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 28px;
+    padding: 15px 20px;
+    margin: 0 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.arrow-btn:active {
+    background-color: black;
+}
+
+/* Show arrow controls on small screens*/
+@media only screen and (max-width: 600px) {
+    #mobile-controls {
+        display: block;
+    }
+}
+
+/*Show arrow controls on phones, tablets, and any coarse-pointer device*/
+@media only screen and (max-width: 1024px), (pointer: coarse) {
+    #mobile-controls {
+        display: block;
+    }
+
+    /* make buttons slightly larger for tablets*/
+    .arrow-btn {
+        padding: 14px 20px;
+        font-size: 26px;
+        margin: 0 8px;
+    }
+} 

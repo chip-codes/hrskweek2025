@@ -1,69 +1,223 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <script src="move.js" defer></script>
-    <title>Hirasako Week</title>
+    <link rel="stylesheet" href="mediaqueries.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
 </head>
 <body>
-    <nav class="navbar">
-        <div class="navdiv">
-            <div class="logo"><a href="#">HRSK</a></div>
-            <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#">Welcome Aboard</a></li>
-                <li class="dropdown">
-                    <a href="#">Hirasako</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Prologue</a></li>
-                        <li><a href="#">Chapters</a></li>
-                        <li><a href="#">Epilogue</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Sako</a></li>
-                <li><a href="#">Hiragi</a></li>
-                <li><a href="#">The Lounge</a></li>
+    <!-- <div class="nav-nav"> -->
+    <nav id="desktop-nav">
+        <div class="logo">hirasakoweek.</div>
+        <div>
+            <ul class="nav-links">
+                <li><a href="#character">Characters</a></li>
+                <li><a href="#interaction">Interactions</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#highlight">Highlight</a></li>
+                <li><a href="#lounge">Lounge</a></li>
             </ul>
         </div>
     </nav>
-    <div class="main-content">
-        <!-- left side -->
-        <div class="welcome-grid">
-
+    <nav id="hamburger-nav">
+        <div class="logo">hirasakoweek.</div>
+        <div class="hamburger-menu">
+            <div class="hamburger-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu-links">
+                <li><a href="#character" onclick="toggleMenu()">Characters</a></li>
+                <li><a href="#interaction" onclick="toggleMenu()">Interactions</a></li>
+                <li><a href="#games" onclick="toggleMenu()">Games</a></li>
+                <li><a href="#highlight" onclick="toggleMenu()">Highlight</a></li>
+                <li><a href="#lounge" onclick="toggleMenu()">Lounge</a></li>
+            </div>
         </div>
+    </nav>
 
-        <!-- right side -->
-        <div class="shelf-grid">
-            <div class="shelf-container">
-                <img src="/image/shelf.png" alt="Shelf" class="shelf-image">
-                <button class="overlay-button">
-                    <img src="/image/coloring_logo.png" alt="Colouring">
-                </button>
-            </div>
-
-            <div class="shelf-container">
-                <img src="/image/shelf.png" alt="Shelf" class="shelf-image">
-                <button class="overlay-button">
-                    <img src="/image/flipbook_logo.png" alt="Flipbook">
-                </button>
-            </div>
-
-            <div class="shelf-container">
-                <img src="/image/shelf.png" alt="Shelf" class="shelf-image">
-                <button class="overlay-button">
-                    <img src="/image/games_logo.png" alt="Games">
-                </button>
-            </div>
-
-            <div class="shelf-container">
-                <img src="/image/shelf.png" alt="Shelf" class="shelf-image">
-                <button class="overlay-button">
-                    <img src="/image/thelounge_logo.png" alt="The Lounge">
-                </button>
-            </div>
+    <div class="logos">
+        <div class="logos-slide">
+            <img src="./logos/logo1.png" />
+            <img src="./logos/logo2.png" />
+            <img src="./logos/logo3.png" />
+            <img src="./logos/logo4.png" />
+            <img src="./logos/logo5.png" />
+            <img src="./logos/logo6.png" />
+            <img src="./logos/logo7.png" />
+            <img src="./logos/logo8.png" />
+            <img src="./logos/logo9.png" />
+            <img src="./logos/logo10.png" />
+            <img src="./logos/logo11.png" />
+            <img src="./logos/logo12.png" />
         </div>
     </div>
+    <!-- </div>
+    <div class="content-content"> -->
+    <!-- PROFILE -->
+    <section id="profile">
+        <div class="profile-bg"></div>
+        <div class="section__text">
+            <p class="section_text_p1">A fanmade event by the community.</p>
+            <h1 class="first_title">Hirasako Week</h1>
+            <h1 class="date">December 2 ~ 8, 2025</h1>
+            <div class="section-pic-container">
+                <img src="./assets/pfp.png" alt="Profile picture">
+            </div>
+            <p class="section_text_p2">Let’s celebrate our two favorite characters together 🦈🦊 <br> Discover all the fun and excitement prepared just for you!</p>
+            <div class="btn-container">
+                <button class="btn btn-color-1" onclick="location.href='./#character'">Get Started</button>
+                <button class="btn btn-color-2" onclick="window.open('https://x.com/hirasakoweek')">Follow Us on <i class="ri-twitter-x-line"></i></button>
+            </div>
+        </div>
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#character'">
+    </section>
+
+    <!-- character -->
+     <section id="character">
+        <p class="section__text__p1">Get To Know More</p>
+        <h1 class="title">Hiragi & Sako</h1>
+        <div class="section-container">
+            <div class="section__pic-container">
+                <img src="./assets/character-pic.png" alt="Profile picture" class="character-pic"/>
+            </div>
+        </div>
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#interaction'">
+
+     </section>
+
+     <!-- interaction -->
+      <section id="interaction">
+        <p class="section__text__p1">Explore The Sweet & Bitterness</p>
+        <h1 class="title">Their Interactions</h1>
+        <div class="interaction-details-container">
+            <div class="slide-container">
+        <div class="slides">
+            <img src="assets/img1.jpeg" alt="Image 1">
+            <img src="assets/img2.jpeg" alt="Image 2">
+            <img src="assets/img3.jpeg" alt="Image 3">
+            <img src="assets/img4.jpeg" alt="Image 4">
+            <img src="assets/img5.png" alt="Image 5">
+            <img src="assets/img6.jpeg" alt="Image 6">
+        </div>
+
+        <div class="buttons">
+        <span class="next">&#10095;</span>
+        <span class="prev">&#10094;</span>
+    </div>
+
+    <div class="dotsContainer"></div>
+        </div></div>
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#games'">
+      </section>
+
+      <!-- games -->
+       <section id="games">
+        <p class="section__text__p1">Come Join The Fun!</p>
+        <h1 class="title">Games Zone</h1>
+        <div class="interaction-details-container">
+          <div class="character-containers">
+                    <a href="games/maze/maze.html" class="btn-image">
+                        <img src="image/maze.png" alt="Maze">
+                    </a>
+
+                    <a href="games/word_search/wordsearch.html" class="btn-image">
+                        <img src="image/wordsearch.png" alt="Word Search">
+                    </a>
+
+                    <button class="btn-image" id="sliding-btn">
+                        <img src="image/sliding.png" alt="Sliding Puzzle">
+                    </button>
+
+                    <a href="games/memory_card/index.html" class="btn-image">
+                        <img src="image/memory.png" alt="Memory Card">
+                    </a>
+          </div>
+        </div>
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#highlight'">
+       </section>
+
+       <!--highlight-->
+       <section id="highlight">
+        <p class="section__text__p1">Fan's piece that made us smile 😆</p>
+        <h1 class="title">Today's highlight</h1>
+        <div class="highlight-info-upper-container">
+            <div class="highlight-info-container">
+                <img src="./assets/email.png" alt="Email icon" class="icon highlight-icon email-icon"/>
+                <p><a href="mailto:examplemail@gmail.com">Example@gmail.com</a></p>
+            </div>
+            <div class="highlight-info-container">
+                <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon highlight-icon"/>
+                <p><a href="https://linkedin.com">LinkedIn</a></p>
+            </div>
+        </div>
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#lounge'">
+       </section>
+
+       <!--THE LOUNGE-->
+       <section id="lounge">
+        <p class="section__text__p1">A lounge to show your games' achievements!</p>
+        <h1 class="title">The Lounge</h1>
+        <div class="highlight-info-upper-container">
+            <div class="highlight-info-container">
+                <img src="./assets/email.png" alt="Email icon" class="icon highlight-icon email-icon"/>
+                <p><a href="mailto:examplemail@gmail.com">Example@gmail.com</a></p>
+            </div>
+            <div class="highlight-info-container">
+                <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon highlight-icon"/>
+                <p><a href="https://linkedin.com">LinkedIn</a></p>
+            </div>
+        </div>
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#foot'">
+       </section>
+       <footer id="foot">
+        <nav id="footer-nav">
+            <div class="nav-links-container">
+                <ul class="nav-links">
+                    <li><a href="#character" onclick="toggleMenu()">Characters</a></li>
+                    <li><a href="#interaction" onclick="toggleMenu()">Interactions</a></li>
+                    <li><a href="#games" onclick="toggleMenu()">Games</a></li>
+                    <li><a href="#highlight" onclick="toggleMenu()">Highlight</a></li>
+                    <li><a href="#lounge" onclick="toggleMenu()">Lounge</a></li>
+                </ul>
+                <img src="./assets/arrow_up.png" 
+            alt="Back to top" 
+            class="icon arrow back-to-top" 
+            onclick="scrollToTop()">
+            </div>
+        </nav>
+        <p>Copyright &#169; 2025 hirasakoweek (X). All Rights Reserved.</p>
+       </footer>
+       <!-- </div> -->
+    <script src="script.js"></script>
+    <script>
+        var copy = document.querySelector(".logos-slide").cloneNode(true);
+        document.querySelector(".logos").appendChild(copy);
+    </script>
+
+    <!-- Popup Overlay -->
+<div id="popup" class="popup-overlay">
+    <div class="popup-box">
+        <h2>Select a Sliding Puzzle Design</h2>
+
+        <div class="design-options">
+            <img src="assets/design1.jpg" data-design="1" alt="Design 1">
+            <img src="assets/design2.png" data-design="2" alt="Design 2">
+            <img src="assets/design3.jpg" data-design="3" alt="Design 3">
+            <img src="assets/design4.jpg" data-design="4" alt="Design 4">
+            <img src="assets/design5.jpg" data-design="5" alt="Design 5">
+        </div>
+
+        <button id="close-popup">Close</button>
+    </div>
+</div>
+
 </body>
 </html>

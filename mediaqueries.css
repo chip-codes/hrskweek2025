@@ -1,0 +1,566 @@
+@media screen and (max-width: 1400px) {
+    #profile {
+        height: 83vh;
+    }
+    .character-containers {
+        flex-wrap: wrap;
+    }
+    #highlight, #games {
+    height: fit-content;
+  }
+
+  #interaction {
+        height: auto;
+    }
+
+    span.next, span.prev {
+    font-size: 10px;
+}
+
+    .slide-container {
+        padding: 0 1rem;          /* some horizontal padding */
+        overflow-x: auto;          /* allow horizontal scroll if needed */
+        display: flex;
+        gap: 0.5rem;
+        height: 200px;
+    }
+
+    .slides {
+        display: flex;             /* horizontal layout */
+        flex-wrap: nowrap;         /* don’t wrap images */
+        gap: 0.5rem;
+    }
+
+    .slides img {
+        min-width: 120px;          /* ensures images are visible */
+        flex: 0 0 auto;            /* keeps original size, allows scrolling */
+    }
+
+    .popup-box {
+        width: 300px;
+    }
+
+    .design-options img {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 1200px) and (max-width: 1250px) and (max-width: 1300px) and (max-width: 1350px) {
+    body {
+        background-image: url(bg.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    #desktop-nav {
+        display: none;
+    }
+
+    #hamburger-nav {
+        display: flex;
+        justify-content: space-between;   /* pushes logo left + menu right */
+        align-items: center;
+        padding: 0 1.5rem;
+        height: 12vh;
+    }
+
+    #hamburger-nav .logo {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-right: auto;               /* ensures logo stays left */
+    }
+
+    .hamburger-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hamburger-icon {
+        margin-left: 1rem;                /* spacing from logo */
+    }
+
+    .interaction-details-container {
+        margin-top: 2rem;
+    }
+    .section-container {
+        display: block;
+    }
+    #profile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 83vh;
+    }
+    /* ⭐ FIX FOR ALL OTHER SECTIONS */
+    section:not(#profile) {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+    .arrow {
+        display: none;
+    }
+
+    section, .section-container {
+        width: 100%;          /* full width */
+        margin: 0;            /* remove extra margin */
+        padding: 0 2%;        /* small horizontal padding */
+        box-sizing: border-box;
+    }
+
+    /* .section__pic-container {
+        max-width: 90%;      
+        height: auto;
+        margin: 0 auto 2rem;
+    } */
+
+    .details-container {
+        width: 100%;          /* stack cards full width */
+        margin-bottom: 2rem;
+    }
+    .character-containers {
+        margin-top: 0;
+    }
+    .character-containers {
+        display: grid;
+        /* gap: 1rem; */
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        justify-items: center; /* centers each item */
+    }
+
+    .character-containers .btn-image img {
+        object-fit: cover;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #interaction {
+        height: auto;
+    }
+
+    span.next, span.prev {
+    font-size: 10px;
+}
+
+    .slide-container {
+        padding: 0 1rem;          /* some horizontal padding */
+        overflow-x: auto;          /* allow horizontal scroll if needed */
+        display: flex;
+        gap: 0.5rem;
+        height: 200px;
+    }
+
+    .slides {
+        display: flex;             /* horizontal layout */
+        flex-wrap: nowrap;         /* don’t wrap images */
+        gap: 0.5rem;
+    }
+
+    .slides img {
+        min-width: 120px;          /* ensures images are visible */
+        flex: 0 0 auto;            /* keeps original size, allows scrolling */
+    }
+
+    .popup-box {
+        width: 300px;
+    }
+
+    .design-options img {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    body {
+        background-image: url(bg.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    #character {
+        /* padding: 5%; */
+    }
+    #highlight, #lounge, footer {
+        height: 40vh;
+        /* padding: 5%; */
+    }
+    #profile {
+        height: 50vh;
+        margin-bottom: 0;
+        /* padding: 10%; */
+        justify-items: center;
+    }
+    article {
+        font-size: 1rem;
+    }
+    footer nav {
+        height: fit-content;
+        /* margin-bottom: 2rem; */
+    }
+    .character-containers, .highlight-info-upper-container, .btn-container {
+        flex-wrap: wrap;
+    }
+
+    .highlight-info-container {
+        margin: 0;
+    }
+    .highlight-info-container p, .nav-links li a {
+        font-size: 1rem;
+    }
+    #interaction {
+        padding: 5%;
+    }
+    .interaction-sub-title {
+        font-size: 1.25rem;
+    }
+    .logo {
+        font-size: 1.5rem;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    section, .section-container {
+        width: 100%;
+        margin: 0;
+        padding: 0 2%;
+        box-sizing: border-box;
+    }
+
+    .section__pic-container {
+        width: 50px;
+        height: auto;
+        margin: 0 auto 1.5rem;
+    }
+
+    .section__pic-container img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .details-container {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    article {
+        width: 100%;           /* stack skill items */
+    }
+
+    .project-img {
+        width: 100%;           /* scale project images */
+        height: auto;
+    }
+    .section__text__p2 {
+        font-size: 1.25rem;
+    }
+    .title {
+        font-size: 2rem;
+    }
+    .text-container {
+        text-align: justify;
+    }
+    .character-containers {
+        display: grid;
+        /* gap: 1rem; */
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        justify-items: center; /* centers each item */
+    }
+
+    .character-containers .btn-image img {
+        object-fit: cover;
+        justify-content: center;
+        align-items: center;
+}
+.slide-container {
+        padding: 0 1rem;          /* some horizontal padding */
+        overflow-x: auto;          /* allow horizontal scroll if needed */
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .slides {
+        display: flex;             /* horizontal layout */
+        flex-wrap: nowrap;         /* don’t wrap images */
+        gap: 0.5rem;
+    }
+
+    .slides img {
+        min-width: 120px;          /* ensures images are visible */
+        flex: 0 0 auto;            /* keeps original size, allows scrolling */
+    }
+
+    .popup-box {
+        width: 300px;
+    }
+
+    .design-options img {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        background-image: url(bg.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    #character {
+        /* padding: 5%; */
+    }
+    #highlight, #lounge, footer {
+        height: 40vh;
+        /* padding: 5%; */
+    }
+    #profile {
+        height: 50vh;
+        margin-bottom: 0;
+        /* padding: 10%; */
+        justify-items: center;
+    }
+    article {
+        font-size: 1rem;
+    }
+    footer nav {
+        height: fit-content;
+        /* margin-bottom: 2rem; */
+    }
+    .character-containers, .highlight-info-upper-container, .btn-container {
+        flex-wrap: wrap;
+    }
+
+    .highlight-info-container {
+        margin: 0;
+    }
+    .highlight-info-container p, .nav-links li a {
+        font-size: 1rem;
+    }
+    #interaction {
+        padding: 5%;
+    }
+    .interaction-sub-title {
+        font-size: 1.25rem;
+    }
+    .logo {
+        font-size: 1.5rem;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    section, .section-container {
+        width: 100%;
+        margin: 0;
+        padding: 0 2%;
+        box-sizing: border-box;
+    }
+
+    .section__pic-container {
+        width: 50px;
+        height: auto;
+        margin: 0 auto 1.5rem;
+    }
+
+    .section__pic-container img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .details-container {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    article {
+        width: 100%;           /* stack skill items */
+    }
+
+    .project-img {
+        width: 100%;           /* scale project images */
+        height: auto;
+    }
+    .section__text__p2 {
+        font-size: 1.25rem;
+    }
+    .title {
+        font-size: 2rem;
+    }
+    .text-container {
+        text-align: justify;
+    }
+    .character-containers {
+        display: grid;
+        /* gap: 1rem; */
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        justify-items: center; /* centers each item */
+    }
+
+    .character-containers .btn-image img {
+        object-fit: cover;
+        justify-content: center;
+        align-items: center;
+}
+.slide-container {
+        padding: 0 1rem;          /* some horizontal padding */
+        overflow-x: auto;          /* allow horizontal scroll if needed */
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .slides {
+        display: flex;             /* horizontal layout */
+        flex-wrap: nowrap;         /* don’t wrap images */
+        gap: 0.5rem;
+    }
+
+    .slides img {
+        min-width: 120px;          /* ensures images are visible */
+        flex: 0 0 auto;            /* keeps original size, allows scrolling */
+    }
+
+    .popup-box {
+        width: 300px;
+    }
+
+    .design-options img {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        background-image: url(bg.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .section-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* important */
+        align-items: center;
+    }
+
+    .section__pic-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .section__pic-container img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .first_title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.5px;
+    }
+
+    .date {
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 3vh;
+    }
+
+    .section_text_p2 {
+        font-size: 0.95rem;
+        font-weight: 400;
+        line-height: 1.5;
+        opacity: 0.9;
+        margin-bottom: 3vh;
+        padding: 0 2vw;
+    }
+
+    .section-pic-container img {
+        display: flex;
+        height: 120px;
+        width: 120px;
+        margin-bottom: 3vh;
+    }
+
+    .section_text_p1 {
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.35;
+        margin-bottom: 1vh;
+    }
+
+    .section__text {
+        /* padding: 4vh 0; */
+        margin-bottom: 3vh;
+    }
+
+    .btn-color-1,
+    .btn-color-2 {
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+
+    .character-containers {
+        display: grid;
+        /* gap: 1rem; */
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        justify-items: center; /* centers each item */
+    }
+
+    .character-containers .btn-image img {
+        object-fit: cover;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #interaction {
+        height: auto;
+    }
+
+    span.next, span.prev {
+    font-size: 10px;
+}
+
+    .slide-container {
+        padding: 0 1rem;          /* some horizontal padding */
+        overflow-x: auto;          /* allow horizontal scroll if needed */
+        display: flex;
+        gap: 0.5rem;
+        height: 200px;
+    }
+
+    .slides {
+        display: flex;             /* horizontal layout */
+        flex-wrap: nowrap;         /* don’t wrap images */
+        gap: 0.5rem;
+    }
+
+    .slides img {
+        min-width: 120px;          /* ensures images are visible */
+        flex: 0 0 auto;            /* keeps original size, allows scrolling */
+    }
+
+    .popup-box {
+        width: 300px;
+    }
+
+    .design-options img {
+        height: 100px;
+        width: 100px;
+    }
+}

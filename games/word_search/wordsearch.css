@@ -1,0 +1,739 @@
+:root {
+    --mainColor: #2B2B2B;
+    --secondaryColor: #FFF;
+    --startColor: #1CC700;
+
+    --fewWordsColor: #DE0000;
+    --goodNumberColor: #FFE200;
+
+    --sakoColor: #FF6347;
+  --foxColor: #985629;         /* 🦊 fox brown/orange */
+  --shishitorenColor: #F0D84F;
+  --kobayashiColor: #712CF9;
+  --ianColor: #BF4080;
+  --latteColor: #61DAFB;
+  --followmeColor: #F14E32;
+  --decemberColor: #CB3837;
+  --hiragiColor: #68A063;
+  --sharkColor: #3178C6;
+  --bofurinColor: #42B883;
+  --suzukiColor: #38BDF8;
+  --nickColor: #DD0031;
+  --coffeeColor: #6F4E37;      /* ☕ coffee brown */
+  --gaskunColor: #FFCA28;
+  --hirasakoColor: #E535AB;
+}
+
+@keyframes startButtonShadowAnimation {
+    0% {
+        box-shadow: 0px 0px 15px -3px var(--startColor);
+    }
+    25% {
+        box-shadow: 0px 0px 15px 1px var(--startColor);
+    }
+    50% {
+        box-shadow: 0px 0px 15px -3px var(--startColor);
+    }
+    75% {
+        box-shadow: 0px 0px 15px 1px var(--startColor);
+    }
+    100% {
+        box-shadow: 0px 0px 15px -3px var(--startColor);
+    }
+}
+
+@keyframes restartButtonShadowAnimation {
+    0% {
+        box-shadow: 0px 0px 15px -3px var(--secondaryColor);
+    }
+    25% {
+        box-shadow: 0px 0px 15px 1px var(--secondaryColor);
+    }
+    50% {
+        box-shadow: 0px 0px 15px -3px var(--secondaryColor);
+    }
+    75% {
+        box-shadow: 0px 0px 15px 1px var(--secondaryColor);
+    }
+    100% {
+        box-shadow: 0px 0px 15px -3px var(--secondaryColor);
+    }
+}
+
+html {
+    font-family: 'Numans', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #000000, #2c2c2c);
+    display: flex;
+    flex-direction: column;  /* keep stacking */
+    align-items: center;     /* keep horizontal centering */
+    justify-content: flex-start; /* ✔ push everything to the top */
+    min-height: 100vh;        /* better than height:100% */
+    margin: 0;
+}
+
+nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centers the title */
+    height: auto;
+    background: #f4f6f7;
+    width: 100%;
+    margin-bottom: 3vh;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;        /* vertically align arrow + title perfectly */
+  justify-content: center;    /* center the title */
+  height: 60px;               /* or whatever height you want */
+  position: relative;
+}
+
+/* position the arrow on the left but keep title centered */
+.navbar a {
+  position: absolute;
+  left: 5px;
+  display: flex;
+  align-items: center;         /* centers icon inside the anchor */
+  height: 100%;
+}
+
+/* fix icon baseline issue */
+.navbar i {
+  line-height: 1;
+  font-size: 1.8rem;           /* adjust size if needed */
+  vertical-align: middle;
+  color: var(--mainColor);                /* or your color */
+}
+
+
+.timerContainer {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 2px 0;
+    font-weight: bold;
+}
+
+/* Back button stays left */
+.ri-arrow-left-s-line {
+    position: absolute;
+    left: 20px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+/* Title stays perfectly centered */
+nav h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    padding: 2vh;
+}
+
+h1 {
+    color: var(--mainColor);
+    text-shadow: -1px 0px 3px var(--mainColor);
+}
+
+p, h1, .spanWord, .btnStartContainer {
+    text-align: center;
+}
+
+h1, p {
+    margin: 8px 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+.d_inline {
+    display: inline;
+}
+
+.d_none {
+    display: none;
+}
+
+.countContainer {
+    display: flex;
+}
+
+.inlineTxt {
+    color: var(--secondaryColor);
+    font-size: 20px;
+}
+
+.initialTxt {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.fewWords {
+    color: var(--fewWordsColor);
+    text-shadow: -1px 0px 6px var(--fewWordsColor);
+}
+
+.goodNumberWords {
+    color: var(--goodNumberColor);
+    text-shadow: -1px 0px 6px var(--goodNumberColor);
+}
+
+.lotOfWords {
+    color: var(--startColor);
+    text-shadow: -1px 0px 6px var(--startColor);
+}
+
+.btnStart, .btnRestart {
+    background-color: var(--mainColor);
+    border-radius: 15px;
+    font-weight: bold;
+    padding: 2px 15px 5px 15px;
+    transition: all 0.3s;
+    margin-bottom: 15px;
+}
+
+.btnStart {
+    animation: startButtonShadowAnimation 3s ease-out infinite;
+    border: solid 2px var(--startColor);
+    color: var(--startColor);
+}
+
+.btnRestart {
+    animation: restartButtonShadowAnimation 3s ease-out infinite;
+    border: solid 2px var(--secondaryColor);
+    color: var(--secondaryColor);
+}
+
+.disabledBtnStart {
+    color: var(--secondaryColor);
+    border: solid 2px var(--secondaryColor);
+}
+
+.disabledBtn, .disabledBtnStart {
+    animation: none;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.countContainer, .imgsContainer, .imgContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgContainer {
+    flex-direction: column;
+    margin: 0 8px 0 8px;
+}
+
+.imgContainer img {
+    margin-bottom: 5px;
+    transition: all 0.3s;
+}
+
+.imgWordNotFound {
+    filter: grayscale(100%);
+}
+
+.spanWord {
+    color: var(--secondaryColor);
+}
+
+.wordSearch {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    transition: all 1.5s;
+}
+
+.wordSearchDisabledWin {
+    pointer-events: none;
+}
+
+.btnLetter {
+    background-color: var(--mainColor);
+    border-radius: 5px;
+    color: var(--secondaryColor);
+    transition: all 0.3s;
+}
+
+.btnLetterClicked {
+    background-color: var(--secondaryColor);
+    color: var(--mainColor);
+    font-weight: 600;
+}
+
+.txtImgSako {
+    color: var(--sakoColor);
+    text-shadow: -1px 0px 1px var(--sakoColor);
+}
+
+.txtImgFox {
+    color: var(--foxColor);
+    text-shadow: -1px 0px 1px var(--foxColor);
+}
+
+.txtImgShishitoren {
+    color: var(--shishitorenColor);
+    text-shadow: -1px 0px 1px var(--shishitorenColor);
+}
+
+.txtImgKobayashi {
+    color: var(--kobayashiColor);
+    text-shadow: -1px 0px 1px var(--kobayashiColor);
+}
+
+.txtImgIan {
+    color: var(--ianColor);
+    text-shadow: -1px 0px 1px var(--ianColor);
+}
+
+.txtImgLatte {
+    color: var(--latteColor);
+    text-shadow: -1px 0px 1px var(--latteColor);
+}
+
+.txtImgFollow {
+    color: var(--followmeColor);
+    text-shadow: -1px 0px 1px var(--followmeColor);
+}
+
+.txtImgDecember {
+    color: var(--decemberColor);
+    text-shadow: -1px 0px 1px var(--decemberColor);
+}
+
+.txtImgHiragi {
+    color: var(--hiragiColor);
+    text-shadow: -1px 0px 1px var(--hiragiColor);
+}
+
+.txtImgShark {
+    color: var(--sharkColor);
+    text-shadow: -1px 0px 1px var(--sharkColor);
+}
+
+.txtImgBofurin {
+    color: var(--bofurinColor);
+    text-shadow: -1px 0px 1px var(--bofurinColor);
+}
+
+.txtImgSuzuki {
+    color: var(--suzukiColor);
+    text-shadow: -1px 0px 1px var(--suzukiColor);
+}
+
+.txtImgNick {
+    color: var(--nickColor);
+    text-shadow: -1px 0px 1px var(--nickColor);
+}
+
+.txtImgCoffee {
+    color: var(--coffeeColor);
+    text-shadow: -1px 0px 1px var(--coffeeColor);
+}
+
+.txtImgGasKun {
+    color: var(--gaskunColor);
+    text-shadow: -1px 0px 1px var(--gaskunColor);
+}
+
+.txtImgHirasako {
+    color: var(--hirasakoColor);
+    text-shadow: -1px 0px 1px var(--hirasakoColor);
+}
+
+.btnWordCompleteSako, .btnWordCompleteFox, .btnWordCompleteShishitoren, .btnWordCompleteKobayashi, .btnWordCompleteIan, .btnWordCompleteLatte, .btnWordCompleteFollow, .btnWordCompleteDecember, .btnWordCompleteHiragi, .btnWordCompleteShark, .btnWordCompleteBofurin, .btnWordCompleteSuzuki, .btnWordCompleteNick, .btnWordCompleteCoffee, .btnWordCompleteGasKun, .btnWordCompleteHirasako {
+    color: var(--secondaryColor);
+    font-weight: 700;
+    pointer-events: none;
+}
+
+.btnWordCompleteSako {
+    background-color: var(--sakoColor);
+    border: solid 2px var(--sakoColor) !important;
+    box-shadow: 0px 0px 15px -3px var(--sakoColor);    
+}
+
+.btnWordCompleteFox {
+    background-color: var(--foxColor);
+    border: solid 2px var(--foxColor) !important;
+    box-shadow: 0px 0px 15px -3px var(--foxColor);
+}
+
+.btnWordCompleteShishitoren {
+    background-color: var(--shishitorenColor);
+    border: solid 2px var(--shishitorenColor) !important;
+    box-shadow: 0px 0px 15px -3px var(--shishitorenColor);
+}
+
+.btnWordCompleteKobayashi {
+    background-color: var(--kobayashiColor);
+    border: solid 2px var(--kobayashiColor) !important;
+    box-shadow: 0px 0px 15px -3px var(--kobayashiColor);
+}
+
+.btnWordCompleteIan {
+    background-color: var(--ianColor);
+    border: solid 2px var(--ianColor) !important;
+    box-shadow: 0px 0px 15px -3px var(--ianColor);
+}
+
+.btnWordCompleteLatte {
+    background-color: var(--latteColor);
+    border: solid 2px var(--latteColor) !important;
+    box-shadow: 0px 0px 15px -3px var(--latteColor);
+}
+
+.btnWordCompleteFollow {
+    background-color: var(--followmeColor);
+    border: solid 2px var(--followmeColor) !important;
+    box-shadow: 0px 0px 15px -3px var(--followmeColor);
+}
+
+.btnWordCompleteDecember {
+    background-color: var(--decemberColor);
+    border: solid 2px var(--decemberColor) !important;
+    box-shadow: 0px 0px 15px -3px var(--decemberColor);
+}
+
+.btnWordCompleteHiragi {
+    background-color: var(--hiragiColor);
+    border: solid 2px var(--hiragiColor) !important;
+    box-shadow: 0px 0px 15px -3px var(--hiragiColor);    
+}
+
+.btnWordCompleteShark {
+    background-color: var(--sharkColor);
+    border: solid 2px var(--sharkColor) !important;
+    box-shadow: 0px 0px 15px -3px var(--sharkColor);
+}
+
+.btnWordCompleteBofurin {
+    background-color: var(--bofurinColor);
+    border: solid 2px var(--bofurinColor) !important;
+    box-shadow: 0px 0px 15px -3px var(--bofurinColor);
+}
+
+.btnWordCompleteSuzuki {
+    background-color: var(--suzukiColor);
+    border: solid 2px var(--suzukiColor) !important;
+    box-shadow: 0px 0px 15px -3px var(--suzukiColor);
+}
+
+.btnWordCompleteNick {
+    background-color: var(--nickColor);
+    border: solid 2px var(--nickColor) !important;
+    box-shadow: 0px 0px 15px -3px var(--nickColor);
+}
+
+.btnWordCompleteCoffee {
+    background-color: var(--coffeeColor);
+    border: solid 2px var(--coffeeColor) !important;
+    box-shadow: 0px 0px 15px -3px var(--coffeeColor);
+}
+
+.btnWordCompleteGasKun {
+    background-color: var(--gaskunColor);
+    border: solid 2px var(--gaskunColor) !important;
+    box-shadow: 0px 0px 15px -3px var(--gaskunColor);
+}
+
+.btnWordCompleteHirasako {
+    background-color: var(--hirasakoColor);
+    border: solid 2px var(--hirasakoColor) !important;
+    box-shadow: 0px 0px 15px -3px var(--hirasakoColor);
+}
+
+.imgsContainer {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== POPUP STYLES ===== */
+.popup-container {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 999;
+}
+
+.popup-container.hidden {
+  display: none;
+}
+
+.popup-card {
+  position: relative;
+  background: #fff;
+  padding: 35px 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  animation: popupFade 0.3s ease-out;
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.2s;
+}
+
+.popup-close:hover {
+    color: #ff0000;
+}
+
+@keyframes popupFade {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  background: #e9f9ef;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 18px auto;
+}
+
+.icon-circle i {
+  font-size: 42px;
+  color: #28a745;
+}
+
+.popup-card h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2b2b2b;
+  margin-bottom: 10px;
+}
+
+.popup-card p {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.ok-btn {
+  width: 100%;
+  padding: 12px 0;
+  background: #1CC700;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.ok-btn:hover {
+  background: #16b100;
+}
+
+.statusContainer {
+    display: flex;
+    align-items: center;           /* Vertically center */
+    flex-direction: column;
+}
+
+.countContainer p,
+.timerContainer {
+    font-size: 18px;
+    font-family: 'Numans', sans-serif;
+}
+
+.timerContainer {
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    color: var(--startColor); /* the glow color */
+    text-shadow: 0 0 8px var(--startColor), 0 0 12px var(--startColor);
+}
+
+.left-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Laptop and desktop: side by side */
+@media (min-width: 1024px) {
+  .mainContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+  .imgsContainer {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+}
+
+  .wordSearch {
+    width: 50%;
+  }
+}
+
+
+/* Media Queries */
+/* Default (mobile): stack vertically */
+@media (min-width: 280px) {
+
+    .statusContainer {
+       margin-bottom: 3vh;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .inlineTxt, .txtCount {
+        font-size: 12px;
+    }
+
+    .btnStart, .btnRestart {
+        font-size: 12px;
+    }
+
+    .imgsContainer {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-row-gap: 5px;
+    }
+
+    .imgContainer img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .spanWord {
+        font-size: 10px;
+    }
+
+    .btnLetter {
+        border: solid 1px var(--secondaryColor);
+        font-size: 8px;
+        margin: 0 0.5px 5px 0.5px;
+        padding: 0;
+        width: 14px;
+        height: 20px;
+    }
+}
+
+@media (min-width: 360px) {
+    .btnLetter {
+        font-size: 8px;
+        width: 17px;
+    }
+}
+
+@media (min-width: 480px) {
+    .btnLetter {
+        font-size: 10px;
+        width: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .statusContainer {
+       margin-bottom: 3vh;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .inlineTxt, .txtCount {
+        font-size: 20px;
+    }
+
+    .btnStart, .btnRestart {
+        font-size: 16px;
+    }
+
+    .imgsContainer {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: 1fr;
+        grid-row-gap: 0px;
+    }
+
+    .imgContainer img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .spanWord {
+        font-size: 13px;
+    }
+    
+    .btnLetter {
+        border: solid 2px var(--secondaryColor);
+        font-size: 15px;
+        margin: 0 2px 5px 2px;
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (min-width: 992px) {
+    .statusContainer {
+       margin-bottom: 3vh;
+    }
+
+    .btnStart:hover {
+        background-color: var(--startColor);
+        box-shadow: 0px 0px 15px -3px var(--startColor);
+    }
+
+    .btnRestart:hover {
+        background-color: var(--secondaryColor);
+        box-shadow: 0px 0px 15px -3px var(--secondaryColor);
+    }
+
+    .btnStart:hover, .btnRestart:hover {
+        animation: none;
+        color: var(--secondaryColor);
+    }
+
+    .btnLetter:hover {
+        background-color: black;
+        box-shadow: 0px 0px 15px  1px var(--secondaryColor);
+    }
+
+    .btnLetterClicked:hover {
+        background-color: var(--secondaryColor);
+    }
+}
+

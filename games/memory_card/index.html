@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar">
+            <a href="../../../index.html">
+                <i class="ri-arrow-left-s-line" style="cursor:pointer;"></i>
+            </a>
+        <h1>Memory Card game</h1>
+    </nav>
+    
+    <div class="grid-container"></div>
+    <p>Time: <span class="timer">00:00</span> | Score: <span class="score"></span></p>
+    <div class="actions">
+        <button class="start-btn" onclick="startGame()">Start Game</button>
+        <button class="restart-btn" onclick="restart()">Restart</button>
+    </div>
+
+    <!-- Success Popup -->
+<div class="popup-container hidden">
+  <div class="popup-card">
+    <div class="icon-circle">
+      <i class="ri-check-line"></i>
+    </div>
+
+    <h2>Congratulations! 🎉</h2>
+    <p>You matched all the cards. Great job!</p>
+
+    <p class="popup-score">Score: 0</p>
+    <p class="popup-time">Time: 00:00</p>
+
+    <button class="ok-btn" onclick="closePopup()">Thanks!</button>
+  </div>
+</div>
+
+<!-- Remix icon -->
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+
+    <script src="script.js"></script>
+</body>
+</html>

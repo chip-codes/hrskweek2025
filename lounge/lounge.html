@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="lounge.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="../../../index.html">
+        <i class="ri-arrow-left-s-line" style="cursor: pointer"></i>
+      </a>
+      <h1>Welcome to The Lounge</h1>
+    </nav>
+    <div class="content-content">
+    <div class="alert">Your message sent!</div>
+
+    <div class="popup">
+      <div class="close-btn">&times;</div>
+      <form id="form" class="form" action="#">
+        <h2>Log In</h2>
+        <div class="snackbar">
+          <i class="fa fa-exclamation-triangle"></i> Please fill in all fields.
+        </div>
+        <div class="snackbar">
+          <i class="fa fa-exclamation-triangle"></i>
+          <div class="text">
+            Once posted, the post cannot be deleted. If removal is needed,
+            contact <span class="highlight">@hirasakoweek</span> on X.
+          </div>
+        </div>
+        <div class="snackbar">
+          <i class="fa fa-lightbulb-o"></i> Tip: Use a unique name, as this site
+          doesn’t require login.
+        </div>
+
+        <div class="form-element">
+          <label id="name-label">Name</label>
+          <input
+            type="text"
+            id="name-field"
+            placeholder="Tell us your name!"
+            required
+          />
+          <span id="name-error" class="error-message"></span>
+        </div>
+        <div class="form-element">
+          <label id="caption-label">Caption</label>
+          <input
+            type="text"
+            id="caption-field"
+            placeholder="Enter a fun caption!"
+            required
+          />
+          <span id="caption-error" class="error-message"></span>
+        </div>
+        <div class="form-element">
+        <label id="category-label">Category</label>
+        <select id="category-field" required>
+            <option value="">Select a category</option>
+            <option value="Memory Game">Memory Game</option>
+            <option value="Maze">Maze</option>
+            <option value="Sliding Puzzle">Sliding Puzzle</option>
+            <option value="Word Search">Word Search</option>
+            <option value="Others">Others</option>
+        </select>
+        <span id="category-error" class="error-message"></span>
+        </div>
+        <div class="form-element">
+          <label id="imageUpload-label">Image</label>  
+          <input type="file" name="inpFile" id="imageUpload-field" accept=".jpg,.jpeg,.png,.webp,.svg" required />
+          <span id="imageUpload-error" class="error-message"></span>
+        </div>
+        <div class="form-element">
+          <button id="submit-btn" type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+
+    <button id="show" class="float">
+      <i class="fa fa-plus my-float"></i>
+    </button>
+
+    <div id="posts-container" class="posts-container"></div>
+
+<script type="module" src="lounge.js"></script>
+    </div>
+  </body>
+</html>

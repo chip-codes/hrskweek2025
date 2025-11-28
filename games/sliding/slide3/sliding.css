@@ -1,0 +1,281 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8b500, #fceabb);
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centers the title */
+    height: auto;
+    background: #f4f6f7;
+    width: 100%;
+    margin-bottom: 3vh;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;        /* vertically align arrow + title perfectly */
+  justify-content: center;    /* center the title */
+  height: 60px;               /* or whatever height you want */
+  position: relative;
+}
+
+/* position the arrow on the left but keep title centered */
+.navbar a {
+  position: absolute;
+  left: 5px;
+  display: flex;
+  align-items: center;         /* centers icon inside the anchor */
+  height: 100%;
+  text-decoration: none;
+}
+
+/* fix icon baseline issue */
+.navbar i {
+  line-height: 1;
+  font-size: 1.8rem;           /* adjust size if needed */
+  vertical-align: middle;
+  color: black;                /* or your color */
+}
+
+.container {
+    background: #fff;
+    border-radius: 15px;
+    padding: 3%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 85vw;         /* ~85% of screen width */
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 3% auto;   /* spacing from top/bottom */
+}
+/* --- Game Board --- */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 1%;
+    margin: 3% auto;
+    width: 85%;         /* takes 90% of viewport width */
+    max-width: none;    /* limit size on large screens */
+    aspect-ratio: 1 / 1; /* keeps square board */
+}
+
+.tile {
+    width: 100%;
+    aspect-ratio: 1 / 1;  /* square tiles */
+    background-size: cover;
+    background-position: center;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.tile.empty {
+    background: transparent;
+    cursor: default;
+    border: none;
+}
+
+/* --- Controls --- */
+.controls button {
+    padding: 2% 4%;
+    margin: 2%;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #6e8efb;
+    color: #fff;
+    font-size: 2.5vw;
+    transition: background 0.3s;
+}
+
+.controls button:hover {
+    background: #f8b500;
+}
+
+.status {
+    font-size: 3vw;
+    margin-top: 3%;
+}
+
+/* Normal state */
+#startButton {
+    background-color: #4ECB71;
+    color: #fff;
+}
+
+/* Hover state */
+#startButton:hover {
+    background-color: #3ABB68;
+}
+
+/* Disabled state */
+#startButton:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* ---------------- RESPONSIVENESS ---------------- */
+
+/* Small Mobile (<480px) */
+@media (max-width: 480px) {
+    .container {
+        width: 95vw;
+        padding: 4%;
+        margin: 5% auto;
+    }
+    .game-board {
+        width: 90%;
+    }
+    .controls button {
+        font-size: 4vw;
+        padding: 3% 6%;
+    }
+    .status {
+        font-size: 4vw;
+    }
+}
+
+/* Tablet (481px–1024px) */
+@media (min-width: 481px) and (max-width: 1024px) {
+    .container {
+        width: 85vw;
+        margin: 4% auto;
+    }
+    .game-board {
+        width: 80%;
+    }
+    .controls button {
+        font-size: 2.8vw;
+        padding: 2% 5%;
+    }
+    .status {
+        font-size: 2.8vw;
+    }
+}
+/* Laptop/Desktop (>1024px) */
+@media (min-width: 1025px) {
+    .container {
+        width: 46vw;        /* container scales with screen width */
+        margin: 4% auto;
+        padding: 2%;        /* scale padding */
+    }
+    .game-board {
+        width: 50%;         /* board is 50% of container */
+    }
+    .status {
+        font-size: 1.1vw;   /* scales with viewport width */
+    }
+    .controls button {
+        padding: 1vw 2vw;   /* scales with viewport */
+        font-size: 1vw;
+    }
+}
+
+/* ===== POPUP STYLES ===== */
+.popup-container {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 999;
+}
+
+.popup-container.hidden {
+  display: none;
+}
+
+.popup-card {
+  position: relative;
+  background: #fff;
+  padding: 35px 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  animation: popupFade 0.3s ease-out;
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.2s;
+}
+
+.popup-close:hover {
+    color: #ff0000;
+}
+
+@keyframes popupFade {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  background: #e9f9ef;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 18px auto;
+}
+
+.icon-circle i {
+  font-size: 42px;
+  color: #28a745;
+}
+
+.popup-card h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2b2b2b;
+  margin-bottom: 10px;
+}
+
+.popup-card p {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.ok-btn {
+  width: 100%;
+  padding: 12px 0;
+  background: #1CC700;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.ok-btn:hover {
+  background: #16b100;
+}

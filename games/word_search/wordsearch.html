@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Google Fonts -->
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+         <link href="https://fonts.googleapis.com/css2?family=Numans&display=swap" rel="stylesheet">
+         <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+         <!-- CSS -->
+          <link rel="stylesheet" type="text/css" href="wordsearch.css">
+
+          <title>Word Search</title>
+    </head>
+    <body>
+        <nav class="navbar">
+            <a href="../../index.html">
+                <i class="ri-arrow-left-s-line" style="cursor:pointer;"></i>
+            </a>
+            <h1>Word Search</h1>
+        </nav>
+                        <!-- Popup Message -->
+            <div class="popup-container hidden">
+                <div class="popup-card">
+                    <span class="popup-close">&times;</span>
+                    <div class="icon-circle"><i class="ri-check-line"></i></div>
+                    <h2>Congratulations!</h2>
+                    <p>You found all words.</p>
+                    <p class="popup-time">Time: 00:00</p>
+                    <p class="popup-moves">Moves: 0</p>
+                    <button class="ok-btn" id="popupOk">OK</button>
+                </div>
+            </div>
+    
+    <div class="mainContainer">
+        <div class="left-container">
+                <div class="statusContainer">
+                    <div class="countContainer">
+                        <p class="initialTxt d_inline"></p>
+                        <p class="txtCount d_none">
+                            Remaining: <span id="countWords"></span> <span id="wordsSpan"></span> left
+                        </p>
+                    </div>
+                    <div class="timerContainer">
+                        Time: <span id="timer">00:00</span>
+                    </div>
+                </div>
+
+            <div class="btnStartContainer">
+                <button class="btnStart" type="button">Start Game!</button>
+                <button class="btnRestart d_none" type="button">Restart Game</button>
+            </div>
+        <div class="imgsContainer">
+            <div class="imgContainer">
+                <img class="imgWordNotFound" src="image/sako.png" alt="Sako">
+                <span class="spanWord">SAKO</span>
+            </div>
+
+            <div class="imgContainer">
+                <img class="imgWordNotFound" src="image/fox.png" alt="Fox">
+                <span class="spanWord">FOX</span>
+            </div>
+
+            <div class="imgContainer">
+                <img class="imgWordNotFound" src="image/shishitoren.png" alt="Shishitoren">
+                <span class="spanWord">SHISHITOREN</span>
+            </div>
+
+            <div class="imgContainer">
+                <img class="imgWordNotFound" src="image/kobayashi.png" alt="Kobayashi">
+                <span class="spanWord">KOBAYASHI</span>
+            </div>
+
+            <div class="imgContainer">
+                <img class="imgWordNotFound" src="image/ian.png" alt="Ian">
+                <span class="spanWord">IAN</span>
+            </div>
+
+            <div class="imgContainer">
+                <img class="imgWordNotFound" src="image/latte.png" alt="Latte">
+                <span class="spanWord">LATTE</span>
+            </div>
+
+            <div class="imgContainer">
+                <img class="imgWordNotFound" src="image/follow me.png" alt="Follow me">
+                <span class="spanWord">FOLLOW ME</span>
+            </div>
+
+            <div class="imgContainer">
+                <img class="imgWordNotFound" src="image/december.png" alt="December">
+                <span class="spanWord">DECEMBER</span>
+            </div>
+
+            <div class="imgContainer">
+                <img class="imgWordNotFound" src="image/hiragi.png" alt="Hiragi">
+                <span class="spanWord">HIRAGI</span>
+            </div>
+
+            <div class="imgContainer">
+                <img class="imgWordNotFound" src="image/shark.png" alt="Shark">
+                <span class="spanWord">SHARK</span>
+            </div>
+
+            <div class="imgContainer">
+                <img class="imgWordNotFound" src="image/bofurin.png" alt="Bofurin">
+                <span class="spanWord">BOFURIN</span>
+            </div>
+
+            <div class="imgContainer">
+                <img class="imgWordNotFound" src="image/suzuki.png" alt="Suzuki">
+                <span class="spanWord">SUZUKI</span>
+            </div>
+
+            <div class="imgContainer">
+                <img class="imgWordNotFound" src="image/nick.png" alt="Nick">
+                <span class="spanWord">NICK</span>
+            </div>
+
+            <div class="imgContainer">
+                <img class="imgWordNotFound" src="image/coffee.png" alt="Coffee">
+                <span class="spanWord">COFFEE</span>
+            </div>
+
+            <div class="imgContainer">
+                <img class="imgWordNotFound" src="image/gaskunten.png" alt="Gaskun-10">
+                <span class="spanWord">GASKUN TEN</span>
+            </div>
+
+            <div class="imgContainer">
+                <img class="imgWordNotFound" src="image/hirasako.png" alt="Hirasako">
+                <span class="spanWord">HIRASAKO</span>
+            </div>
+        </div>
+        </div>
+
+        <main class="wordSearch">
+            <!-- Row 1 -->
+            <button class="btnLetter" type="button">H</button>
+            <button class="btnLetter" type="button">I</button>
+            <button class="btnLetter" type="button">R</button>
+            <button class="btnLetter" type="button">A</button>
+            <button class="btnLetter" type="button">S</button>
+            <button class="btnLetter" type="button">A</button>
+            <button class="btnLetter" type="button">K</button>
+            <button class="btnLetter" type="button">O</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">S</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <br>
+
+            <!-- Row 2 -->
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">X</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">H</button>
+            <button class="btnLetter" type="button">I</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <br>
+
+            <!-- Row 3 -->
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">B</button>
+            <button class="btnLetter" type="button">O</button>
+            <button class="btnLetter" type="button">F</button>
+            <button class="btnLetter" type="button">U</button>
+            <button class="btnLetter" type="button">R</button>
+            <button class="btnLetter" type="button">I</button>
+            <button class="btnLetter" type="button">N</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">A</button>
+            <button class="btnLetter" type="button">A</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <br>
+
+            <!-- Row 4 -->
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">F</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">N</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">R</button>
+            <button class="btnLetter" type="button">*</button>
+            <br>
+
+            <!-- Row 5 -->
+            <button class="btnLetter" type="button">N</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">O</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">S</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">K</button>
+            <br>
+
+            <!-- Row 6 -->
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">I</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">K</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">H</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">N</button>
+            <br>
+
+            <!-- Row 7 -->
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">C</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">A</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">I</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">E</button>
+            <br>
+
+            <!-- Row 8 -->
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">K</button>
+            <button class="btnLetter" type="button">O</button>
+            <button class="btnLetter" type="button">B</button>
+            <button class="btnLetter" type="button">A</button>
+            <button class="btnLetter" type="button">Y</button>
+            <button class="btnLetter" type="button">A</button>
+            <button class="btnLetter" type="button">S</button>
+            <button class="btnLetter" type="button">H</button>
+            <button class="btnLetter" type="button">I</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">S</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">T</button>
+            <br>
+
+            <!-- Row 9 -->
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">D</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">F</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">H</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">N</button>
+            <br>
+
+            <!-- Row 10 -->
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">E</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">E</button>
+            <button class="btnLetter" type="button">E</button>
+            <button class="btnLetter" type="button">F</button>
+            <button class="btnLetter" type="button">F</button>
+            <button class="btnLetter" type="button">O</button>
+            <button class="btnLetter" type="button">C</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">I</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">U</button>
+            <br>
+
+            <!-- Row 11 -->
+            <button class="btnLetter" type="button">B</button>
+            <button class="btnLetter" type="button">C</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">L</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">T</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">K</button>
+            <br>
+
+            <!-- Row 12 -->
+            <button class="btnLetter" type="button">I</button>
+            <button class="btnLetter" type="button">E</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">H</button>
+            <button class="btnLetter" type="button">I</button>
+            <button class="btnLetter" type="button">R</button>
+            <button class="btnLetter" type="button">A</button>
+            <button class="btnLetter" type="button">G</button>
+            <button class="btnLetter" type="button">I</button>
+            <button class="btnLetter" type="button">L</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">O</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">S</button>
+            <br>
+
+            <!-- Row 13 -->
+            <button class="btnLetter" type="button">R</button>
+            <button class="btnLetter" type="button">M</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">O</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">R</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">A</button>
+            <br>
+
+            <!-- Row 14 -->
+            <button class="btnLetter" type="button">D</button>
+            <button class="btnLetter" type="button">B</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">E</button>
+            <button class="btnLetter" type="button">T</button>
+            <button class="btnLetter" type="button">T</button>
+            <button class="btnLetter" type="button">A</button>
+            <button class="btnLetter" type="button">L</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">W</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">E</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">G</button>
+            <br>
+
+            <!-- Row 15 -->
+            <button class="btnLetter" type="button">Y</button>
+            <button class="btnLetter" type="button">E</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">M</button>
+            <button class="btnLetter" type="button">N</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+            <br>
+
+            <!-- Row 16 -->
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">R</button>
+            <button class="btnLetter" type="button">S</button>
+            <button class="btnLetter" type="button">U</button>
+            <button class="btnLetter" type="button">Z</button>
+            <button class="btnLetter" type="button">U</button>
+            <button class="btnLetter" type="button">K</button>
+            <button class="btnLetter" type="button">I</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">C</button>
+            <button class="btnLetter" type="button">H</button>
+            <button class="btnLetter" type="button">I</button>
+            <button class="btnLetter" type="button">P</button>
+            <button class="btnLetter" type="button">E</button>
+            <button class="btnLetter" type="button">*</button>
+            <button class="btnLetter" type="button">*</button>
+
+        </main>
+    </div>
+
+        <!-- JS -->
+         <script src="wordsearch.js"></script>
+    </body>
+</html>

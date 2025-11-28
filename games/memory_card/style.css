@@ -1,0 +1,394 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: rgb(0, 0, 0);
+}
+
+nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centers the title */
+    height: auto;
+    background: #f4f6f7;
+    width: 100%;
+    margin-bottom: 3vh;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;        /* vertically align arrow + title perfectly */
+  justify-content: center;    /* center the title */
+  height: 60px;               /* or whatever height you want */
+  position: relative;
+}
+
+/* position the arrow on the left but keep title centered */
+.navbar a {
+  position: absolute;
+  left: 5px;
+  display: flex;
+  align-items: center;         /* centers icon inside the anchor */
+  height: 100%;
+  text-decoration: none;
+}
+
+/* fix icon baseline issue */
+.navbar i {
+  line-height: 1;
+  font-size: 1.8rem;           /* adjust size if needed */
+  vertical-align: middle;
+  color: black;                /* or your color */
+}
+
+h1 {
+    text-align: center;
+    color: black;
+}
+
+p {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 2vh;
+    margin-bottom: 10px;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+}
+
+.actions button {
+    padding: 8px 19px;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: #27ae60;
+    color: white;
+    cursor: pointer;
+}
+
+.actions button:hover {
+    background-color: #40cb7a;
+}
+
+.grid-container {
+    display: grid;
+    justify-content: center;
+    grid-gap: 14px;
+    grid-template-columns: repeat(6, 110px);
+    grid-template-rows: repeat(2, calc(110px / 2 * 3));
+}
+
+.card {
+    height: calc(110px / 2 * 3);
+    width: 110px;
+    border-radius: 10px;
+    background-color: white;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease-in-out;
+}
+
+.card.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.front-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* or 'contain' if you want full artwork without cropping */
+    border-radius: 10px;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.card .front {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+}
+
+.card .back {
+    background-image: url("assets/back.png");
+    background-position: center center;
+    background-size: cover;
+    backface-visibility: hidden;
+}
+
+/* ===== POPUP ===== */
+.popup-container {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 999;
+}
+
+.popup-container.hidden {
+  display: none;
+}
+
+.popup-card {
+  background: #fff;
+  padding: 35px 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  background: #e9f9ef;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 18px auto;
+}
+
+.icon-circle i {
+  font-size: 42px;
+  color: #28a745;
+}
+
+.popup-card h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2b2b2b;
+  margin-bottom: 10px;
+}
+
+.popup-card p {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.ok-btn {
+  width: 100%;
+  padding: 12px 0;
+  background: #1CC700;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.ok-btn:hover {
+  background: #16b100;
+}
+
+/* -------------------- RESPONSIVE DESIGN -------------------- */
+
+/* Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(4, 120px);
+        grid-template-rows: repeat(3, calc(120px / 2 * 3));
+        grid-gap: 14px;
+    }
+
+    .card {
+        width: 120px;
+        height: calc(120px / 2 * 3);
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .popup {
+        width: 70%;
+        padding: 35px 30px;
+    }
+
+    .popup h2 {
+        font-size: 28px;
+    }
+
+    .popup p {
+        font-size: 18px;
+    }
+
+    .popup button {
+        font-size: 20px;
+        padding: 12px 0;
+    }
+}
+
+/* Large Phones (max-width: 767px) */
+@media (max-width: 767px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 90px);
+        grid-template-rows: repeat(4, 126px); /* 1.4 ratio */
+        grid-gap: 12px;
+    }
+
+    .card {
+        width: 90px;
+        height: 126px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 22px;
+    }
+
+    .popup {
+        width: 85%;
+        padding: 28px 22px;
+        border-radius: 18px;
+    }
+
+    .popup h2 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .popup p {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    .popup button {
+        font-size: 18px;
+        padding: 10px 0;
+        border-radius: 12px;
+    }
+}
+
+/* Small Phones (max-width: 480px) */
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 70px);
+        grid-template-rows: repeat(4, 98px);
+        grid-gap: 10px;
+    }
+
+    .card {
+        width: 70px;
+        height: 98px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .actions button {
+        font-size: 18px;
+        padding: 7px 16px;
+    }
+
+    .popup {
+        width: 90%;
+        padding: 22px 18px;
+        border-radius: 16px;
+    }
+
+    .popup h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .popup p {
+        font-size: 14px;
+    }
+
+    .popup button {
+        font-size: 16px;
+        padding: 9px 0;
+    }
+
+    .popup .success-icon {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* Extra Small Phones (max-width: 360px) */
+@media (max-width: 360px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 75px);
+        grid-template-rows: repeat(4, calc(75px / 2 * 3));
+        grid-gap: 8px;
+    }
+
+    .card {
+        width: 75px;
+        height: calc(75px / 2 * 3);
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .actions button {
+        font-size: 16px;
+        padding: 6px 14px;
+    }
+
+    .popup {
+        width: 92%;
+        padding: 18px 15px;
+        border-radius: 14px;
+    }
+
+    .popup h2 {
+        font-size: 18px;
+    }
+
+    .popup p {
+        font-size: 13px;
+    }
+
+    .popup button {
+        font-size: 15px;
+        padding: 8px 0;
+    }
+
+    .popup .success-icon {
+        width: 60px;
+        height: 60px;
+    }
+}
