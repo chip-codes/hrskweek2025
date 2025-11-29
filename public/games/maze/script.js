@@ -1,6 +1,13 @@
 let timerInterval = null;
 let timeElapsed = 0;
 
+// === Maze Popup Elements ===
+const mazePopup = document.getElementById("maze-popup");
+
+const mazePopupMoves = mazePopup.querySelector(".popup-moves");
+const mazePopupTime = mazePopup.querySelector(".popup-time");
+const mazePopupOk = document.getElementById("mazeOk");
+
 function startTimer() {
     // Stop any existing timer
     stopTimer(); 
@@ -60,14 +67,29 @@ function changeBrightness(factor, sprite) {
     return spriteOutput;
 }
 
+// for display in popup
+function formatTime(seconds) {
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return `${m}:${s < 10 ? "0" : ""}${s}`;
+}
+
+// Show the popup
+function showMazePopup(moves, timeElapsed) {
+    mazePopupMoves.textContent = `Moves: ${moves}`;
+    mazePopupTime.textContent = `Time: ${formatTime(timeElapsed)}`;
+    mazePopup.classList.remove("hidden");
+}
+
+// Close popup
+mazePopupOk.addEventListener("click", () => {
+    mazePopup.classList.add("hidden");
+    location.reload(); // or go to next level
+});
+
 function displayVictoryMess(moves) {
     stopTimer();
-
-    // Show both moves and time
-    document.getElementById("moves").innerHTML =
-        `You moved ${moves} steps.<br>Time: ${timeElapsed}s`;
-    
-    toggleVisablity("Message-Container");
+    showMazePopup(moves, timeElapsed);
 }
 
 function toggleVisablity(id) {

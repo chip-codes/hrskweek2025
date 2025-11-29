@@ -21,20 +21,33 @@
 
             <!-- Success Popup -->
             <div class="popup-container hidden">
-            <div class="popup-card">
-                <span class="popup-close">&times;</span> <!-- <-- close button -->
-                <div class="icon-circle">
-                <i class="ri-check-line"></i>
+                <div class="popup-card">
+                    <span class="popup-close">&times;</span> <!-- <-- close button -->
+                    <div class="icon-circle">
+                    <i class="ri-check-line"></i>
+                    </div>
+
+                    <h2>Congratulations! 🎉</h2>
+                    <p>You solved the puzzle!</p>
+
+                    <p class="popup-moves">Moves: 0</p>
+                    <p class="popup-time">Time: 00:00</p>
+
+                    <button id="popupOk" class="ok-btn">OK</button>
                 </div>
-
-                <h2>Congratulations! 🎉</h2>
-                <p>You solved the puzzle!</p>
-
-                <p class="popup-moves">Moves: 0</p>
-                <p class="popup-time">Time: 00:00</p>
-
-                <button id="popupOk" class="ok-btn">OK</button>
             </div>
+
+
+            <h2>Art #1 by <a href="https://x.com/birdy_bomb/status/1970877024152834133?s=20">Birdy Bomb</a> <button id="ins">Instruction</button> </h2>
+
+            <!-- Instruction Popup -->
+            <div id="ins-popup" class="popup hidden">
+                <div class="popup-card">
+                    <h3>For reference</h3>
+                    <img src="image/design1.jpg" alt="Birdy">
+                    <p>Once finished, go to The Lounge and post your achievement there!</p>
+                    <button id="ins-close">Close</button>
+                </div>
             </div>
 
             <div class="game-board" id="gameBoard">

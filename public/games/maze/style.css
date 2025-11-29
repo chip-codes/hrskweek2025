@@ -10,59 +10,57 @@ html, body {
 }
 
 nav {
-    position: relative;
     display: flex;
     align-items: center;
-    justify-content: center; /* centers the title */
-    height: auto;
+    justify-content: center;
     background: #f4f6f7;
     width: 100%;
     margin-bottom: 3vh;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    height: 60px;
+    position: relative;
 }
 
-.navbar {
+/* .navbar {
   display: flex;
-  align-items: center;        /* vertically align arrow + title perfectly */
-  justify-content: center;    /* center the title */
-  height: 60px;               /* or whatever height you want */
+  align-items: center;
+  justify-content: center;
+  height: 60px;
   position: relative;
-}
+} */
 
 /* position the arrow on the left but keep title centered */
 .navbar a {
-  position: absolute;
-  left: 5px;
-  display: flex;
-  align-items: center;         /* centers icon inside the anchor */
-  height: 100%;
-  text-decoration: none;
+    position: absolute;
+    left: 5px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    text-decoration: none;
 }
 
 /* fix icon baseline issue */
 .navbar i {
-  line-height: 1;
-  font-size: 1.8rem;           /* adjust size if needed */
-  vertical-align: middle;
-  color: black;                /* or your color */
+    font-size: 1.8rem;
+    color: black;
+    line-height: 1;
+    vertical-align: middle;
 }
 
-
 h1 {
-    margin: 10px;
+    margin: 0;
+    text-align: center;
 }
 
 #page {
     text-align: center;
     width: 100%;
-    margin: auto;
 }
 
 /* ---------- MENU AREA ---------- */
 
 #menu {
-    margin-top: 10px;
-    margin-bottom: 15px;
+    margin: 10px 0 15px 0;
     display: flex;
     justify-content: center;
     gap: 5px;
@@ -78,6 +76,7 @@ input, select {
     border-radius: 5px;
     color: white;
     font-size: 15px;
+    transition: background 0.3s;
 }
 
 input:hover, select:hover {
@@ -94,13 +93,7 @@ input:focus, select:focus {
 
 /* ---------- MAZE CANVAS ---------- */
 
-#view {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-#mazeContainer {
+#view, #mazeContainer {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -123,29 +116,6 @@ input:focus, select:focus {
     border-radius: 10px;
 }
 
-/* ---------- MESSAGE POPUP ---------- */
-
-#Message-Container {
-    visibility: hidden;
-    color: white;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.30);
-    z-index: 1;
-    top: 0;
-}
-
-#Message-Container #message {
-    width: 300px;
-    height: 300px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-left: -150px;
-    margin-top: -150px;
-}
-
 /* ---------- INSTRUCTIONS ---------- */
 
 #instructions {
@@ -153,40 +123,35 @@ input:focus, select:focus {
     font-size: 18px;
 }
 
-/* ---------- RESPONSIVE BREAKPOINTS ---------- */
+/* ---------- MESSAGE POPUP ---------- */
 
-/* Phones */
-@media only screen and (max-width: 480px) {
-    #mazeCanvas {
-        max-width: 260px;
-    }
-
-    input, select {
-        width: 110px;
-        height: 40px;
-        font-size: 14px;
-    }
-
-    #instructions {
-        font-size: 14px;
-        margin-top: 10px;
-    }
+/* popup system */
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
 }
 
-/* Small Tablets */
-@media only screen and (min-width: 481px) and (max-width: 768px) {
-    #mazeCanvas {
-        max-width: 350px;
-    }
+/* HIDDEN state */
+.popup-container.hidden {
+    display: none !important;
 }
 
-/* Large Tablets */
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
-    #mazeCanvas {
-        max-width: 420px;
-    }
+.popup-card {
+    background: #fff;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
-
 
 /*MOBILE ARROW CONTROLS*/
 #mobile-controls {
@@ -209,16 +174,83 @@ input:focus, select:focus {
     margin: 0 10px;
     border-radius: 10px;
     cursor: pointer;
+    transition: background 0.2s;
 }
 
 .arrow-btn:active {
     background-color: black;
 }
 
-/* Show arrow controls on small screens*/
-@media only screen and (max-width: 600px) {
-    #mobile-controls {
-        display: block;
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    background-color: #4caf50;
+    border-radius: 50%;  
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px; 
+}
+
+.icon-circle i {
+    color: white; 
+    font-size: 30px;
+}
+
+#mazeOk {
+    background-color: #4caf50;  
+    color: #ffffff;             
+    border: none;               
+    border-radius: 12px;        
+    padding: 10px 20px;         
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+#mazeOk:hover {
+    background-color: #76c279; 
+    transform: scale(1.05); 
+}
+
+/* ---------- RESPONSIVE BREAKPOINTS ---------- */
+
+/* Phones */
+@media only screen and (max-width: 480px) {
+    #mazeCanvas {
+        max-width: 260px;
+    }
+
+    input, select {
+        width: 110px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    #instructions {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    .arrow-btn {
+        padding: 14px 18px;
+        font-size: 26px;
+        margin:  0 6px;;
+    }
+}
+
+/* Small Tablets */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    #mazeCanvas {
+        max-width: 350px;
+    }
+}
+
+/* Large Tablets */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    #mazeCanvas {
+        max-width: 420px;
     }
 }
 

@@ -197,3 +197,25 @@ generateGrid();
 shuffleTiles();
 
 });
+
+// Select elements
+  const insBtn = document.getElementById('ins');
+  const insPopup = document.getElementById('ins-popup');
+  const insClose = document.getElementById('ins-close');
+
+  // Open instruction popup
+  insBtn.addEventListener('click', () => {
+      insPopup.classList.remove('hidden');
+  });
+
+  // Close instruction popup
+  insClose.addEventListener('click', () => {
+      insPopup.classList.add('hidden');
+  });
+
+  // Optional: click outside the popup card to close
+  insPopup.addEventListener('click', (e) => {
+      if (e.target === insPopup) {
+          insPopup.classList.add('hidden');
+      }
+  });

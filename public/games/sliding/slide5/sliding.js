@@ -14,15 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // images
     const images = [
-        "image/a1.jpg",
-        "image/a2.jpg",
+        "image/o1.jpg",
+        "image/o2.jpg",
         "", // empty slot
-        "image/a4.jpg",
-        "image/a5.jpg",
-        "image/a6.jpg",
-        "image/a7.jpg",
-        "image/a8.jpg",
-        "image/a9.jpg"
+        "image/o4.jpg",
+        "image/o5.jpg",
+        "image/o6.jpg",
+        "image/o7.jpg",
+        "image/o8.jpg",
+        "image/o9.jpg"
     ];
 
     function generateGrid() {
@@ -197,3 +197,25 @@ generateGrid();
 shuffleTiles();
 
 });
+
+// Select elements
+  const insBtn = document.getElementById('ins');
+  const insPopup = document.getElementById('ins-popup');
+  const insClose = document.getElementById('ins-close');
+
+  // Open instruction popup
+  insBtn.addEventListener('click', () => {
+      insPopup.classList.remove('hidden');
+  });
+
+  // Close instruction popup
+  insClose.addEventListener('click', () => {
+      insPopup.classList.add('hidden');
+  });
+
+  // Optional: click outside the popup card to close
+  insPopup.addEventListener('click', (e) => {
+      if (e.target === insPopup) {
+          insPopup.classList.add('hidden');
+      }
+  });

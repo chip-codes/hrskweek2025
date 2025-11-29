@@ -14,6 +14,12 @@ const letters = document.querySelectorAll('.btnLetter');
 
 const timerContainer = document.querySelector('.timerContainer');
 
+const popupContainer = document.querySelector(".popup-container");
+const popupTime = document.querySelector(".popup-time");
+const popupMoves = document.querySelector(".popup-moves");
+const popupOk = document.querySelector("#popupOk");
+
+
 // SAKO
 const sakoWord = [letters[105], letters[89], letters[73]];
 const foxWord = [letters[51], letters[17]];
@@ -246,7 +252,7 @@ const letterInCommonNotNull = (letterInCommon, className, className2) => {
 };
 
 const youWin = (points) => {
-    stopTimer(); 
+    // stopTimer(); 
 
     if(points === maxPoints) {
         stopTimer();
@@ -261,8 +267,8 @@ const youWin = (points) => {
             // ===== POPUP MESSAGE =====
             const minutes = Math.floor(timer / 60);
             const seconds = timer % 60;
-            alert(`🎉 You found all the words in ${minutes}:${seconds < 10 ? '0' : ''}${seconds} minutes!`);
-        }, 5000);
+           showPopup(minutes, seconds, points);
+        }, 1000);
     }
 };
 
@@ -535,3 +541,16 @@ const validateLast8Words = () => {
             validateLast8Words();
         });
     });
+
+    // Show popup
+function showPopup(finalMinutes, finalSeconds, moves = 0) {
+    popupTime.textContent = `Time: ${finalMinutes}:${finalSeconds < 10 ? '0' : ''}${finalSeconds}`;
+    popupMoves.textContent = `Moves: ${moves}`;
+    popupContainer.classList.remove("hidden");
+}
+
+// Close popup
+popupOk.addEventListener("click", () => {
+    popupContainer.classList.add("hidden");
+    window.location.reload();
+});

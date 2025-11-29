@@ -655,20 +655,20 @@ article .icon {
 }
 
 #close-popup {
-    background-color: #5368f0;  /* nice blue */
-    color: #ffffff;             /* white text */
-    border: none;               /* remove border for casual look */
-    border-radius: 12px;        /* softer, round corners */
-    padding: 10px 20px;         /* more horizontal padding */
+    background-color: #5368f0;  
+    color: #ffffff;             
+    border: none;               
+    border-radius: 12px;        
+    padding: 10px 20px;         
     font-weight: 500;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s; /* smooth hover effect */
+    transition: background-color 0.3s, transform 0.2s; 
 }
 
 #close-popup:hover {
-    background-color: #4352c4; /* slightly darker blue */
-    transform: scale(1.05); /* subtle lift effect */
+    background-color: #4352c4; 
+    transform: scale(1.05); 
 }
 
 .design-options img {

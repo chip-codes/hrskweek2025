@@ -1,15 +1,96 @@
 @media screen and (max-width: 1400px) {
+    body {
+        background-image: url(bg.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    #desktop-nav {
+        display: none;
+    }
+
+    #hamburger-nav {
+        display: flex;
+        justify-content: space-between;   /* pushes logo left + menu right */
+        align-items: center;
+        padding: 0 1.5rem;
+        height: 12vh;
+    }
+
+    #hamburger-nav .logo {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-right: auto;               /* ensures logo stays left */
+    }
+
+    .hamburger-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hamburger-icon {
+        margin-left: 1rem;                /* spacing from logo */
+    }
+
+    .interaction-details-container {
+        margin-top: 2rem;
+    }
+    .section-container {
+        display: block;
+    }
     #profile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         min-height: 83vh;
     }
-    .character-containers {
-        flex-wrap: wrap;
+    /* ⭐ FIX FOR ALL OTHER SECTIONS */
+    section:not(#profile) {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
     }
-    #highlight, #games {
-    height: fit-content;
-  }
+    .arrow {
+        display: none;
+    }
 
-  #interaction {
+    section, .section-container {
+        width: 100%;          /* full width */
+        margin: 0;            /* remove extra margin */
+        padding: 0 2%;        /* small horizontal padding */
+        box-sizing: border-box;
+    }
+
+    /* .section__pic-container {
+        max-width: 90%;      
+        height: auto;
+        margin: 0 auto 2rem;
+    } */
+
+    .details-container {
+        width: 100%;          /* stack cards full width */
+        margin-bottom: 2rem;
+    }
+    .character-containers {
+        margin-top: 0;
+    }
+    .character-containers {
+        display: grid;
+        /* gap: 1rem; */
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        justify-items: center; /* centers each item */
+    }
+
+    .character-containers .btn-image img {
+        object-fit: cover;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #interaction {
         height: auto;
     }
 
@@ -22,7 +103,7 @@
         overflow-x: auto;          /* allow horizontal scroll if needed */
         display: flex;
         gap: 0.5rem;
-        height: 200px;
+        height: 400px;
     }
 
     .slides {
@@ -45,6 +126,15 @@
         width: 100px;
     }
 
+    .hashtag {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 100%;
+        font-weight: 800;
+        text-align: center;
+    }
+
     .admin_section__text__p1 {
         text-align: center;
         color: #F2D784;
@@ -55,6 +145,7 @@
     .admin_title {
         font-size: 3rem;
         text-align: center;
+        margin-bottom: 5vh;
         color: #677390;
         /* text-shadow: 0 3px 8px rgba(0,0,0,0.45); */
     }
@@ -165,7 +256,7 @@
         overflow-x: auto;          /* allow horizontal scroll if needed */
         display: flex;
         gap: 0.5rem;
-        height: 200px;
+        height: 400px;
     }
 
     .slides {

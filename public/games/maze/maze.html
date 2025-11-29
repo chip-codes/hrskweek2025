@@ -26,14 +26,21 @@
         </nav>
     <div id="page">
 
-        <!-- Congratulations Popup -->
-        <div id="Message-Container">
-            <div id="message">
-                <h1>Congratulations!</h1>
-                <p>You are done.</p>
-                <p id="moves"></p>
-                <input id="okBtn" type="button" onclick="toggleVisablity('Message-Container')" value="Cool!"/>
+        <!-- Maze Victory Popup (same style as word search) -->
+        <div class="popup-container hidden" id="maze-popup">
+        <div class="popup-card">
+            <div class="icon-circle">
+            <i class="ri-check-line"></i>
             </div>
+
+            <h2>Congratulations! 🎉</h2>
+            <p>You escaped the maze!</p>
+
+            <p class="popup-moves">Moves: 0</p>
+            <p class="popup-time">Time: 00:00</p>
+
+            <button class="ok-btn" id="mazeOk">Cool!</button>
+        </div>
         </div>
 
         <!-- Difficulty + Start -->
