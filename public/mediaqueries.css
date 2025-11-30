@@ -1,4 +1,4 @@
-@media screen and (max-width: 1400px) {
+@media screen and (min-width: 1025px) and (max-width: 1400px) {
     body {
         background-image: url(bg.png);
         background-size: cover;
@@ -148,6 +148,10 @@
         margin-bottom: 5vh;
         color: #677390;
         /* text-shadow: 0 3px 8px rgba(0,0,0,0.45); */
+    }
+
+    #games, #interaction {
+        height: auto;
     }
 }
 
@@ -302,6 +306,33 @@
         color: #677390;
         /* text-shadow: 0 3px 8px rgba(0,0,0,0.45); */
     }
+
+    #games {
+        height: auto;
+    }
+
+     #character .section-container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    #character .character__pic-container {
+        width: 100%;
+        padding: 30px 0;
+        flex-direction: row;
+    }
+
+    .intro-img {
+        width: 40%;
+    }
+    
+    .intro-info {
+        width: 60%;
+    }
+
+    .character__pic-container img {
+        width: 70%;
+    }
 }
 
 @media screen and (max-width: 780px) {
@@ -311,10 +342,10 @@
         background-repeat: no-repeat;
         background-position: center;
     }
-    #character {
-        /* padding: 5%; */
+    #games {
+        height: auto;
     }
-    #highlight, #lounge, footer {
+    #lounge, footer {
         height: 40vh;
         /* padding: 5%; */
     }
@@ -344,6 +375,7 @@
     #interaction {
         padding: 5%;
     }
+    
     .interaction-sub-title {
         font-size: 1.25rem;
     }
@@ -409,7 +441,8 @@
         justify-content: center;
         align-items: center;
 }
-.slide-container {
+
+    .slide-container {
         padding: 0 1rem;          /* some horizontal padding */
         overflow-x: auto;          /* allow horizontal scroll if needed */
         display: flex;
@@ -425,6 +458,11 @@
     .slides img {
         min-width: 120px;          /* ensures images are visible */
         flex: 0 0 auto;            /* keeps original size, allows scrolling */
+    }
+
+    .dotsContainer .dot {
+        width: 8px;
+        height: 8px;
     }
 
     .popup-box {
@@ -449,6 +487,28 @@
         color: #677390;
         /* text-shadow: 0 3px 8px rgba(0,0,0,0.45); */
     }
+
+    #character .character__pic-container {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #character .intro-img img,
+    #character .intro-img .hiragi-pic,
+    #character .intro-img .sako-pic {
+        width: 140px !important;
+        height: auto !important;
+    }
+
+    .intro-info p {
+        font-size: 0.95rem;
+    }
+
+    .intro-img .sako-pic {
+        margin-bottom: 0;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -458,12 +518,13 @@
         background-repeat: no-repeat;
         background-position: center;
     }
-    #character {
-        /* padding: 5%; */
-    }
-    #highlight, #lounge, footer {
+
+    #lounge, footer {
         height: 40vh;
-        /* padding: 5%; */
+        padding: 5%;
+    }
+    #games {
+        height: auto;
     }
     #profile {
         min-height: 83vh;
@@ -491,6 +552,11 @@
     #interaction {
         padding: 5%;
     }
+
+    #interaction, #highlight {
+        height: auto;
+    }
+
     .interaction-sub-title {
         font-size: 1.25rem;
     }
@@ -518,6 +584,10 @@
     .section__pic-container img {
         height: 100px;
         width: 100px;
+    }
+
+    .section__text__p1 {
+        margin-top: 10px;
     }
 
     .details-container {
@@ -572,6 +642,11 @@
     .slides img {
         min-width: 120px;          /* ensures images are visible */
         flex: 0 0 auto;            /* keeps original size, allows scrolling */
+    }
+
+    .dotsContainer .dot {
+        width: 8px;
+        height: 8px;
     }
 
     .popup-box {
@@ -604,6 +679,28 @@
         color: #677390;
         /* text-shadow: 0 3px 8px rgba(0,0,0,0.45); */
     }
+
+    #character .character__pic-container {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #character .intro-img img,
+    #character .intro-img .hiragi-pic,
+    #character .intro-img .sako-pic {
+        width: 140px !important;
+        height: auto !important;
+    }
+
+    .intro-info p {
+        font-size: 0.95rem;
+    }
+
+    .intro-img .sako-pic {
+        margin-bottom: 0;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -612,6 +709,10 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+    }
+
+    #games {
+        height: auto;
     }
 
     #profile {
@@ -669,6 +770,10 @@
         margin-bottom: 3vh;
     }
 
+    .section__text__p1 {
+        margin-top: 10px;
+    }
+
     .section_text_p1 {
         font-size: 1rem;
         font-weight: 600;
@@ -702,7 +807,7 @@
         align-items: center;
     }
 
-    #interaction {
+    #interaction, #highlight {
         height: auto;
     }
 
@@ -727,6 +832,11 @@
     .slides img {
         min-width: 120px;          /* ensures images are visible */
         flex: 0 0 auto;            /* keeps original size, allows scrolling */
+    }
+
+    .dotsContainer .dot {
+        width: 8px;
+        height: 8px;
     }
 
     .popup-box {
@@ -759,5 +869,32 @@
         text-align: center;
         color: #677390;
         /* text-shadow: 0 3px 8px rgba(0,0,0,0.45); */
+    }
+
+    #character .character__pic-container {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #character .intro-img img,
+    #character .intro-img .hiragi-pic,
+    #character .intro-img .sako-pic {
+        width: 140px !important;
+        height: auto !important;
+    }
+
+    .intro-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .intro-info p {
+        font-size: 0.85rem;
+        text-align: center;
+    }
+
+    .intro-img .sako-pic {
+        margin-bottom: 0;
     }
 }

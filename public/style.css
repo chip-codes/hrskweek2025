@@ -337,14 +337,16 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
 }
 
 #us .section-container {
     display: flex;
+    gap: 4rem;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 #us .section-container .small-text {
@@ -375,6 +377,7 @@ section {
         /* text-shadow: 0 3px 8px rgba(0,0,0,0.45); */
     }
 
+    /*  */
 
 
 /* ICONS */
@@ -443,22 +446,62 @@ section {
 
 #character {
     position: relative;
-    height: 100vh;
     width: 100%;
     background-color: rgb(255, 255, 255);
 }
 
-/* character section only */
-#character .section-container {
-    display: flex;          /* enable flex */
-    flex-direction: column; /* stack children vertically */
-    align-items: center;    /* center horizontally */
-    gap: 2rem;              /* optional spacing between image and details */
+.section-container-intro {
+    height: 80%;
 }
 
-#character .section__pic-container {
-    text-align: center;
+/* character section only */
+#character .section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    /* border: 1rem solid #222; */
 }
+
+#character .character__pic-container {
+    text-align: center;
+    /* border: 1rem solid #222; */
+    /* margin: 0 15px; */
+    padding-top: 20px;
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+}
+
+.character__pic-container img {
+    /* display: flex; */
+    margin: 0 auto;
+    height: 50%;
+    border-radius: 20%;
+    /* border: 5px solid #FFB07C;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), 0 10px 20px rgba(0, 0, 0, 0.5); */
+}
+
+.intro-img {
+    width: 30%;
+}
+
+.intro-img .sako-pic {
+    margin-bottom: 5vh;
+}
+
+.intro-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    width: 70%;
+}
+
 
 .character-containers {
     gap: 2rem;
@@ -476,8 +519,11 @@ section {
     display: flex;
 }
 
-.character-pic {
-    border-radius: 2rem;
+.hiragi-pic,
+.sako-pic {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .arrow {
@@ -499,7 +545,7 @@ section {
 }
 
 .section-container {
-    gap: 4rem;
+    /* gap: 4rem; */
     height: 80%;
 }
 
@@ -515,7 +561,7 @@ section {
     position: relative;
     background-color: transparent;
     padding-bottom: 4rem;
-    height: 100vh;
+    /* min-height: 100vh; */
     width: 100%;
     margin-left: 0;
     overflow-x: hidden;
@@ -566,7 +612,7 @@ article .icon {
 
 #games {
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     background-color: #fafafa;
     padding: 5%;
@@ -683,6 +729,11 @@ article .icon {
     transform: scale(1.1);
 }
 
+.design-options p {
+    margin-bottom: 15px;
+    font-size: auto;
+}
+
 #sliding-btn {
     transform: scale(1.05);
     cursor: pointer;
@@ -695,9 +746,9 @@ article .icon {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
-    background-color: tra;
+    /* background-color: tra; */
 }
 
 .highlight-info-upper-container {
@@ -708,7 +759,7 @@ article .icon {
     /* border-color: rgb(163, 163, 163); */
     /* background: rgb(250, 250, 250); */
     /* margin: 2rem auto; */
-    padding: 0.5rem;
+    padding: 5rem;
     gap: 20px;
 }
 
@@ -735,6 +786,7 @@ article .icon {
 
 .highlight-info-container p {
     font-size: larger;
+    font-weight: 600;
 }
 
 .highlight-icon {
@@ -753,7 +805,7 @@ article .icon {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     background-color: rgb(255, 255, 255);
 }
@@ -765,6 +817,7 @@ article .icon {
   width: auto;
   border-radius: 30px;
   padding: 10px 20px;
+  margin: 10px;
   display: inline-flex;
   align-items: center;
   gap: 8px; /* space between text and icon */
