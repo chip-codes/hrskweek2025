@@ -1,101 +1,81 @@
 const hamburgerIcon = document.querySelector('.hamburger-icon');
 const menuLinks = document.querySelector('.menu-links');
 
-// access the images
-const slideImages = document.querySelectorAll('.slides img');
-// access the next and prev btns
+const slideImages = Array.from(document.querySelectorAll('.slides img'));
 const next = document.querySelector('.next');
 const prev = document.querySelector('.prev');
-// access the indicators
 const container = document.querySelector('.slide-container');
 const dotsContainer = document.querySelector('.dotsContainer');
 
 let counter = 0;
 let autoSlideInterval;
 
+const totalDots = 6; // always 6 dots
+
+// Hamburger toggle
 hamburgerIcon.addEventListener('click', () => {
     hamburgerIcon.classList.toggle('open');
     menuLinks.classList.toggle('open');
 });
 
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // smooth scroll
-    });
-}
-
+// ---------- CREATE DOTS ----------
+dotsContainer.innerHTML = "";
 let dots = [];
-slideImages.forEach((img, index) => {
-    let dot = document.createElement('div');
-    dot.classList.add('dot');
-    if (index === 0) dot.classList.add('active');
-    dot.setAttribute('attr', index);
-    dot.onclick = () => switchImage(dot);
+
+for (let i = 0; i < totalDots; i++) {
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    if (i === 0) dot.classList.add("active");
     dotsContainer.appendChild(dot);
     dots.push(dot);
-});
-
-function showSlide(index) {
-    slideImages.forEach(img => img.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
-    slideImages[index].classList.add('active');
-    dots[index].classList.add('active');
-    counter = index;
 }
 
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+ 
+
+// ---------- DISPLAY SINGLE IMAGE ----------
+function showImage() {
+    slideImages.forEach(img => img.classList.remove("active"));
+
+    // show current image
+    slideImages[counter].classList.add("active");
+
+    // update dots (cycle 0-5)
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[counter % totalDots].classList.add("active");
+}
+
+// ---------- NEXT/PREV ----------
 function slideNext() {
-    let nextIndex = (counter + 1) % slideImages.length;
-    showSlide(nextIndex);
+    counter = (counter + 1) % slideImages.length;
+    showImage();
 }
 
 function slidePrev() {
-    let prevIndex = (counter - 1 + slideImages.length) % slideImages.length;
-    showSlide(prevIndex);
+    counter = (counter - 1 + slideImages.length) % slideImages.length;
+    showImage();
 }
 
-// auto sliding
+// ---------- AUTO SLIDE ----------
 function startAutoSliding() {
-    autoSlideInterval = setInterval(slideNext, 3000);
+    autoSlideInterval = setInterval(slideNext, 3000); // 1s per image
 }
 
 function stopAutoSliding() {
     clearInterval(autoSlideInterval);
 }
 
-// btn events
+// ---------- EVENT LISTENERS ----------
 next.addEventListener('click', slideNext);
 prev.addEventListener('click', slidePrev);
-// pause on hover
 container.addEventListener('mouseover', stopAutoSliding);
 container.addEventListener('mouseout', startAutoSliding);
 
-showSlide(0);
+// ---------- INITIAL DISPLAY ----------
+showImage();
 startAutoSliding();
-
-function updateIndicators() {
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[counter].classList.add('active');
-}
-
-// add click event to the indicator
-function switchImage(dot) {
-    let imageId = parseInt(dot.getAttribute('attr'));
-
-    if (imageId === counter) return; //already active / index 0
-
-    if (imageId > counter) {
-        slideImages[counter].style.animation = 'next1 0.5s ease-in forwards';
-        counter = imageId;
-        slideImages[counter].style.animation = 'next2 0.5s ease-in forwards';
-    } else {
-        slideImages[counter].style.animation = 'prev1 0.5s ease-in forwards';
-        counter = imageId;
-        slideImages[counter].style.animation = 'prev2 0.5s ease-in forwards';
-    }
-
-    updateIndicators();
-}
 
 // popup for sliding
     document.addEventListener("DOMContentLoaded", () => {
@@ -118,5 +98,3 @@ function switchImage(dot) {
         });
     });
 });
-
-

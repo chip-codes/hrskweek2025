@@ -1,18 +1,15 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-
-body {
+html, body {
   width: 100%;
   min-height: 100vh;
+}
+
+body {
   background: linear-gradient(180deg, #fbb034, #fbb034, #fbb034, #ffec94);
 }
 
@@ -31,7 +28,7 @@ nav {
 .navbar {
   display: flex;
   align-items: center; /* vertically align arrow + title perfectly */
-  justify-content: center; /* center the title */
+  justify-content: space-between; /* center the title */
   height: 60px; /* or whatever height you want */
   position: fixed;
 }
@@ -58,9 +55,22 @@ nav {
   color: black; /* or your color */
 }
 
+.nav-plus-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: black;
+  position: absolute;
+  right: 10px;
+}
+
 h1 {
   text-align: center;
   color: black;
+  flex: 1;
+  margin: 0;
+  font-size: 1.2rem;
 }
 
 .heart-icon {
@@ -85,6 +95,23 @@ h1 {
 }
 
 .float i {
+  line-height: 60px;
+}
+
+.nav-float {
+  position: fixed;
+  width: auto;
+  height: auto;
+  top: 0px;
+  right: 0px;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  box-shadow: 2px 2px 3px #999;
+  cursor: pointer;
+}
+
+.nav-float i {
   line-height: 60px;
 }
 
@@ -284,14 +311,14 @@ h1 {
 /* Posts container */
 .posts-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 12px;
   padding: 16px;
 }
 
 /* Single post card */
 .post {
-  /* width: 300px; */
+  width: 100%;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -331,6 +358,10 @@ h1 {
   font-weight: bold;
   font-size: 1rem;
   color: #222;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .post-content .post-category {
@@ -347,9 +378,14 @@ h1 {
   background-color: #007bff;
   color: #fff;
   padding: 2px 8px;
-  font-size: 12px;
+  font-size: 10px;
   border-radius: 12px;
   align-self: flex-start;
+  min-width: auto;
+  width: auto;
+  margin-top: 2px;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .post-actions {
@@ -364,19 +400,23 @@ h1 {
 
 .post-header {
   display: flex;
-  margin: 15px 10px;
+  flex-wrap: wrap;
+  margin: 8px 10px;
   justify-content: space-between;
 }
 
 .post-user {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
+    flex-shrink: 1;
+    min-width: 0;
 }
 
 .post-pfp {
-    width: 5px;
-    height: 5px;
+    width: 10%;
+    max-width: 40px;   /* optional max so it never gets too big */
+    height: auto;       /* preserves aspect ratio */
     border-radius: 50%;
     object-fit: cover;
 }
@@ -401,15 +441,15 @@ h1 {
   font-size: 1.2rem;
 }
 
-@media (max-width: 1024px) {
-  .float {
+@media (max-width: 1201px) {
+  .nav-float, .float {
     width: 60px;
     height: 60px;
     bottom: 35px;
     right: 35px;
     font-size: 24px;
   }
-  .float i {
+  .nav-float i, .float i {
     line-height: 60px;
   }
 
@@ -441,18 +481,27 @@ h1 {
     font-size: 30px;
     height: 55px;
   }
+
+  .post img.post-image {
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .posts-container {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
 }
 
 /* Phones */
 @media (max-width: 480px) {
-  .float {
+  .nav-float, .float {
     width: 50px;
     height: 50px;
     bottom: 20px;
     right: 20px;
     font-size: 20px;
   }
-  .float i {
+  .nav-float i, .float i {
     line-height: 50px;
   }
 
@@ -496,16 +545,16 @@ h1 {
 
   .posts-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    padding: 10px;
-    gap: 5px;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 5px;
+    gap: 10px;
   }
 
   .post-content .post-name {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
   .post-content .post-caption {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
   }
 
   .post {
@@ -513,20 +562,27 @@ h1 {
   }
 
   .post-pfp {
-    width: 5px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .post img.post-image {
+    height: 120px;          /* smaller height for small screens */
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
   }
 }
 
 /* Tablets */
-@media (min-width: 481px) and (max-width: 768px) {
-  .float {
+@media (max-width: 768px) {
+  .nav-float, .float {
     width: 55px;
     height: 55px;
     bottom: 30px;
     right: 30px;
     font-size: 22px;
   }
-  .float i {
+  .nav-float i, .float i {
     line-height: 55px;
   }
 
@@ -558,32 +614,55 @@ h1 {
   }
 
   .posts-container {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 12px;
     padding: 15px;
   }
 
   .post-content .post-name {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
   }
   .post-content .post-caption {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+  }
+
+  .post-pfp {
+    width: 25px;
+    height: 25px;
+  }
+
+  .post img.post-image {
+    height: 180px;          /* medium height for tablets */
+    object-fit: cover;
   }
 }
 
 /* Laptops and desktops */
-@media (min-width: 769px) {
+@media (min-width: 769px) and (max-width: 1200px) {
   .posts-container {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
     padding: 15px;
   }
 
   .post {
-    width: 200px;
+    width: 100%;
   }
 
   .post-pfp {
-    width: 8px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .post-content .post-name {
+    font-size: 0.85rem;
+  }
+  .post-content .post-caption {
+    font-size: 0.8rem;
+  }
+
+  .post img.post-image {
+    height: 200px;
+    object-fit: cover;
   }
 }

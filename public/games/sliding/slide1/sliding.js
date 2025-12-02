@@ -198,22 +198,22 @@ shuffleTiles();
 
 });
 
-// Select elements
+// instruction popup
   const insBtn = document.getElementById('ins');
   const insPopup = document.getElementById('ins-popup');
   const insClose = document.getElementById('ins-close');
 
-  // Open instruction popup
+  // Open popup
   insBtn.addEventListener('click', () => {
       insPopup.classList.remove('hidden');
   });
 
-  // Close instruction popup
+  // close the popup
   insClose.addEventListener('click', () => {
       insPopup.classList.add('hidden');
   });
 
-  // Optional: click outside the popup card to close
+  // click outside the popup card to close
   insPopup.addEventListener('click', (e) => {
       if (e.target === insPopup) {
           insPopup.classList.add('hidden');

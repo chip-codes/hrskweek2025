@@ -502,6 +502,9 @@ section {
     width: 70%;
 }
 
+.intro-info p {
+    margin: 20px 0;
+}
 
 .character-containers {
     gap: 2rem;
@@ -782,6 +785,8 @@ article .icon {
     height: 150px;
     width: 150px;
     border-radius: 2rem;
+
+    /* filter: grayscale(100%); */
 }
 
 .highlight-info-container p {
@@ -791,6 +796,21 @@ article .icon {
 
 .highlight-icon {
     cursor: default;
+}
+
+.fan-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fan-text {
+    color: #202f5a;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-shadow: 0 3px 1px rgba(0,0,0,0.5);
 }
 
 .email-icon {

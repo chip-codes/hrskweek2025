@@ -681,6 +681,28 @@ document.querySelectorAll(".arrow-btn").forEach(btn => {
     });
 });
 
+// instruction popup
+  const insBtn = document.getElementById('ins');
+  const insPopup = document.getElementById('ins-popup');
+  const insClose = document.getElementById('ins-close');
+
+  // Open popup
+  insBtn.addEventListener('click', () => {
+      insPopup.classList.remove('hidden');
+  });
+
+  // close the popup
+  insClose.addEventListener('click', () => {
+      insPopup.classList.add('hidden');
+  });
+
+  // click outside the popup card to close
+  insPopup.addEventListener('click', (e) => {
+      if (e.target === insPopup) {
+          insPopup.classList.add('hidden');
+      }
+  });
+
 /* 
 left = 37
 up = 38
